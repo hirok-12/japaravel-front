@@ -1,6 +1,6 @@
 <template>
   <div>
-      <p>サンプルレイアウト</p>
-      <slot />
+    <p>サンプルレイアウト</p>
+    <slot />
   </div>
-  </template>
+</template>
