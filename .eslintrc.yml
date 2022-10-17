@@ -3,6 +3,8 @@ env:
   browser: true
   # ECMAScript2021を適用
   es2021: true
+  # module.exports / require は JavaScript modules の書き方ではなく、node.js の書き方なので、これらを許容する
+  node: true
 extends:
   # eslint-plugin-vueが推奨するルールを適用/https://eslint.vuejs.org/user-guide/#installation
   - 'plugin:vue/vue3-recommended'
