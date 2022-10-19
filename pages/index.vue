@@ -10,6 +10,6 @@
 <script setup>
 // eslint-disable-next-line no-undef
 definePageMeta({
-  layout: 'sample',
+  layout: 'default',
 })
 </script>
