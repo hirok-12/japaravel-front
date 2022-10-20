@@ -3,7 +3,7 @@
     <div class="">
       <img
         src="@/assets/images/main.jpeg"
-        :class="pcView ? 'pc-main': 'hideen'"
+        :class="pcView ? 'pc-main': ''"
         class="w-full rounded-lg object-cover lg:h-2/5"
       >
       {{ pcView }}
