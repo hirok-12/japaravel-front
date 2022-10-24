@@ -72,12 +72,12 @@
           >
             <span>ログイン</span>
           </a>
-          <a
-            href=""
+          <NuxtLink
+            to="/terms"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
           >
             <span>利用規約</span>
-          </a>
+          </NuxtLink>
           <a
             href=""
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
@@ -94,10 +94,20 @@
 import { ref } from 'vue'
 
 export default {
-  setup() {
+  setup(_, {emit}) {
     const showMenu = ref(false)
+
+    function openModal() {
+      emit('cutom', true)
+    }
+
     const toggleNav = () => (showMenu.value = !showMenu.value)
-    return { showMenu, toggleNav }
+
+    return {
+      showMenu,
+      toggleNav,
+      openModal,
+    }
   },
 }
 </script>
