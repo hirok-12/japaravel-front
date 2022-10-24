@@ -8,11 +8,10 @@
       leave-from-class="opacity-100"
       leave-to-class="opacity-0"
     >
-      <div
-        v-show="showModal"
-        class="bg-grey-200"
-      >
-        <div class="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50">
+      <div v-show="showModal" class="bg-grey-200">
+        <div
+          class="h-screen w-full fixed left-0 top-0 flex justify-center items-center bg-black bg-opacity-50"
+        >
           <!-- modal -->
           <div
             ref="modal"
@@ -22,12 +21,7 @@
             <!-- modal header-->
             <div class="border-b px-4 py-2 flex justify-between items-center">
               <h3>{{ title }}</h3>
-              <button
-                class="text-black"
-                @click="closeModal"
-              >
-                &cross;
-              </button>
+              <button class="text-black" @click="closeModal">&cross;</button>
             </div>
             <!-- modal body-->
             <div class="p-3">
@@ -49,8 +43,7 @@
 </template>
 
 <script>
-import { ref, watch } from 'vue';
-
+import { ref, watch } from 'vue'
 
 export default {
   props: {
@@ -66,21 +59,20 @@ export default {
 
   setup(props, context) {
     const showModal = ref(false)
-    const modal = ref(null);
-
+    const modal = ref(null)
 
     function closeModal() {
-      context.emit('close');
+      context.emit('close')
     }
 
     watch(
       () => props.show,
-      show => {
-        showModal.value = show;
+      (show) => {
+        showModal.value = show
       }
     )
 
     return { showModal, closeModal, modal }
-  }
+  },
 }
 </script>

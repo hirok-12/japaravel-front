@@ -1,10 +1,7 @@
 <template>
   <div class="sticky top-0 z-50 bg-white">
     <nav class="flex items-center p-3 flex-wrap">
-      <a
-        href=""
-        class="p-2 mr-4 inline-flex items-center"
-      >
+      <a href="" class="p-2 mr-4 inline-flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -94,7 +91,7 @@
 import { ref } from 'vue'
 
 export default {
-  setup(_, {emit}) {
+  setup(_, { emit }) {
     const showMenu = ref(false)
 
     function openModal() {
