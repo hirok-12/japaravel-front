@@ -1,7 +1,7 @@
 <template>
   <div class="sticky top-0 z-50 bg-white">
     <nav class="flex items-center p-3 flex-wrap">
-      <a href="" class="p-2 mr-4 inline-flex items-center">
+      <NuxtLink to="/" class="p-2 mr-4 inline-flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -16,7 +16,7 @@
           />
         </svg>
         <span class="text-xl font-bold tracking-wide"> Japaravel </span>
-      </a>
+      </NuxtLink>
       <button
         class="inline-flex p-3 hover:bg-gray-100 rounded lg:hidden ml-auto"
         @click="toggleNav"
@@ -57,18 +57,18 @@
         class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto"
       >
         <div class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
-          <a
-            href=""
+          <NuxtLink
+            to="/signup"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
           >
             <span>無料登録</span>
-          </a>
-          <a
+          </NuxtLink>
+          <NuxtLink
             href=""
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
           >
             <span>ログイン</span>
-          </a>
+          </NuxtLink>
           <NuxtLink
             to="/terms"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
