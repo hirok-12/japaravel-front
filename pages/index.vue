@@ -5,7 +5,7 @@
         src="@/assets/images/japan.jpeg"
         :class="pcView ? 'pc-main' : ''"
         class="w-full rounded-lg object-cover lg:h-2/5"
-      />
+      >
     </div>
     <section class="text-gray-600 body-font">
       <div class="container px-5 py-24 mx-auto">

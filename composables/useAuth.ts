@@ -114,7 +114,7 @@ export const useAuth = () => {
         const credential = GoogleAuthProvider.credentialFromError(error);
         console.log({ errorCode, errorMessage, email, credential });
     });
-  };
+  }
 
   // twitter認証関数
   async function loginWithTwitter() {
@@ -134,7 +134,7 @@ export const useAuth = () => {
         const credential = TwitterAuthProvider.credentialFromError(error);
         console.log({ errorCode, errorMessage, email, credential });
     });
-  };
+  }
 
 
 

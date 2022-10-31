@@ -1,7 +1,10 @@
 <template>
   <div class="sticky top-0 z-50 bg-white">
     <nav class="flex items-center p-3 flex-wrap">
-      <NuxtLink to="/" class="p-2 mr-4 inline-flex items-center">
+      <NuxtLink
+        to="/"
+        class="p-2 mr-4 inline-flex items-center"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"

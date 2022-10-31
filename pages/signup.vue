@@ -4,23 +4,25 @@
       class="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2"
     >
       <div class="bg-white px-6 py-8 text-black w-full">
-        <h1 class="mb-8 text-3xl text-center">新規登録 🎉</h1>
+        <h1 class="mb-8 text-3xl text-center">
+          新規登録 🎉
+        </h1>
 
         <input
+          v-model="email"
           type="text"
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="email"
           placeholder="Email"
-          v-model="email"
-        />
+        >
 
         <input
+          v-model="password"
           type="password"
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="password"
           placeholder="Password"
-          v-model="password"
-        />
+        >
         <!-- <input
           type="password"
           class="block border border-grey-light w-full p-3 rounded mb-4"
@@ -65,8 +67,7 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-                >Twitterアカウントで登録</span
-              >
+              >Twitterアカウントで登録</span>
             </div>
           </button>
         </div>
@@ -89,8 +90,7 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-                >Googleアカウントで登録</span
-              >
+              >Googleアカウントで登録</span>
             </div>
           </button>
         </div>
