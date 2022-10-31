@@ -11,6 +11,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="email"
           placeholder="Email"
+          v-model="email"
         />
 
         <input
@@ -18,17 +19,19 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="password"
           placeholder="Password"
+          v-model="password"
         />
-        <input
+        <!-- <input
           type="password"
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="confirm_password"
           placeholder="Confirm Password"
-        />
+        /> -->
 
         <button
           type="submit"
           class="block border border-grey-light w-full p-3 rounded mb-4 bg-indigo-500 hover:bg-indigo-700 text-white"
+          @click="register"
         >
           登録
         </button>
@@ -47,6 +50,7 @@
         <div class="my-6">
           <button
             class="block border border-gray-300 w-full p-3 rounded-md hover:bg-slate-50 transition duration-300"
+            @click="signInWithTwitter"
           >
             <div class="relative flex items-center space-x-4 justify-center">
               <svg
@@ -70,6 +74,7 @@
         <div class="my-6">
           <button
             class="block border border-gray-300 w-full p-3 rounded-md hover:bg-slate-50 transition duration-300"
+            @click="signInWithGoogle"
           >
             <div class="relative flex items-center space-x-4 justify-center">
               <svg
@@ -95,7 +100,35 @@
 </template>
 
 <script>
-export default {}
+import { ref } from 'vue'
+
+export default {
+  setup() {
+    const { signUp, loginWithGoogle, loginWithTwitter } = useAuth();
+    const email = ref("")
+    const password = ref("")
+
+    const register = () => {
+      signUp(email.value, password.value)
+    }
+
+    const signInWithGoogle = () => {
+      loginWithGoogle()
+    }
+
+    const signInWithTwitter = () => {
+      loginWithTwitter()
+    }
+
+    return {
+      email,
+      password,
+      register,
+      signInWithGoogle,
+      signInWithTwitter
+    }
+  },
+}
 </script>
 
 <style></style>
