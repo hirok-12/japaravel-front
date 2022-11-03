@@ -11,6 +11,7 @@ import {
 
 export const useAuth = () => {
   const token = useState<string>('token', () => null)
+  const { successToaste, errorToaste } = useNotify();
 
   // メールアドレス新規登録関数
   async function signUp(email:string, password:string){
@@ -22,11 +23,13 @@ export const useAuth = () => {
       .then((userCredential) => {
         console.log(userCredential)
         // サインアップできたらログインする
+        successToaste('新規登録完了🎉')
         resolve("success")
       })
       .catch((error) => {
-        console.log(error)
+        console.log(`エラー: ${error}`)
         const errorMessage = error.message;
+        errorToaste('新規登録に失敗しました😭')
         resolve(errorMessage)
       })
     })
@@ -43,6 +46,7 @@ export const useAuth = () => {
             .getIdToken()
               .then((idToken) => {
                 token.value = idToken
+                successToaste('ログインしました🎉')
                 resolve()
               })
             .catch(reject)
@@ -59,9 +63,11 @@ export const useAuth = () => {
       firebaseSignOut(auth)
         .then(() => {
           token.value = null
+          successToaste('ログアウトしました🎉')
           resolve()
         })
         .catch((error) => {
+          errorToaste('ログアウに失敗しました😭')
           reject(error)
         })
     })
@@ -105,6 +111,7 @@ export const useAuth = () => {
         const credential = GoogleAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         const user = result.user;
+        successToaste('ログインしました🎉')
         console.log({ credential, token, user });
     })
     .catch((error) => {
@@ -112,6 +119,7 @@ export const useAuth = () => {
         const errorMessage = error.message;
         const email = error.email;
         const credential = GoogleAuthProvider.credentialFromError(error);
+        errorToaste('ログイン失敗しました😭')
         console.log({ errorCode, errorMessage, email, credential });
     });
   }
@@ -125,6 +133,7 @@ export const useAuth = () => {
         const credential = TwitterAuthProvider.credentialFromResult(result);
         const token = credential?.accessToken;
         const user = result.user;
+        successToaste('ログインしました🎉')
         console.log({ credential, token, user });
     })
     .catch((error) => {
@@ -132,6 +141,7 @@ export const useAuth = () => {
         const errorMessage = error.message;
         const email = error.email;
         const credential = TwitterAuthProvider.credentialFromError(error);
+        errorToaste('ログイン失敗しました😭')
         console.log({ errorCode, errorMessage, email, credential });
     });
   }
