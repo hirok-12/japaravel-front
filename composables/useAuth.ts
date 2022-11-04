@@ -67,7 +67,7 @@ export const useAuth = () => {
           resolve()
         })
         .catch((error) => {
-          errorToaste('ログアウに失敗しました😭')
+          errorToaste('ログアウトに失敗しました😭')
           reject(error)
         })
     })
