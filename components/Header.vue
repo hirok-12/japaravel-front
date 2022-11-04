@@ -73,6 +73,13 @@
             <span>ログイン</span>
           </NuxtLink>
           <NuxtLink
+            href=""
+            class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
+            @click="logOut"
+          >
+            <span>ログアウト</span>
+          </NuxtLink>
+          <NuxtLink
             to="/terms"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
           >
@@ -95,10 +102,15 @@ import { ref } from 'vue'
 
 export default {
   setup(_, { emit }) {
+    const { signOut } = useAuth();
     const showMenu = ref(false)
 
-    function openModal() {
+    const openModal = () => {
       emit('cutom', true)
+    }
+
+    const logOut = () => {
+      signOut()
     }
 
     const toggleNav = () => (showMenu.value = !showMenu.value)
@@ -107,6 +119,7 @@ export default {
       showMenu,
       toggleNav,
       openModal,
+      logOut
     }
   },
 }
