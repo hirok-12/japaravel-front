@@ -9,15 +9,17 @@
         </h1>
 
         <div v-if="errors">
-          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-10" role="alert">
-          <strong class="font-bold">入力項目エラー</strong><br />
-          <ul>
-            <li><span class="block sm:inline">{{ emailError }}</span></li>
-            <li><span class="block sm:inline">{{ passwordError }}</span></li>
-            <li><span class="block sm:inline">{{ passwordConfirmError }}</span></li>
-          </ul>
-        </div>
-
+          <div
+            class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-10"
+            role="alert"
+          >
+            <strong class="font-bold">入力項目エラー</strong><br>
+            <ul>
+              <li><span class="block sm:inline">{{ emailError }}</span></li>
+              <li><span class="block sm:inline">{{ passwordError }}</span></li>
+              <li><span class="block sm:inline">{{ passwordConfirmError }}</span></li>
+            </ul>
+          </div>
         </div>
         <input
           v-model="email"
@@ -41,14 +43,14 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="passwordConfirm"
           placeholder="Confirm Password"
-        />
+        >
 
         <button
           type="submit"
           :class="validInput ? 'bg-indigo-500 hover:bg-indigo-700' : 'bg-gray-500'"
           class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
-          @click="register"
           :disabled="!validInput"
+          @click="register"
         >
           登録
         </button>

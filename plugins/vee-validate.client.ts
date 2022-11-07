@@ -1,4 +1,3 @@
-
 import { localize, setLocale } from "@vee-validate/i18n";
 // VeeValidateで用意されている英語語版入力チェックエラーメッセージを使う
 import en from "@vee-validate/i18n/dist/locale/en.json";
