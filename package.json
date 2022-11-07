@@ -25,7 +25,10 @@
     "tailwindcss": "^3.1.8"
   },
   "dependencies": {
+    "@vee-validate/i18n": "^4.7.2",
+    "@vee-validate/rules": "^4.7.2",
     "firebase": "^9.13.0",
+    "vee-validate": "^4.7.2",
     "vue-final-modal": "^3.4.9",
     "vue-toastification": "^2.0.0-rc.5"
   }

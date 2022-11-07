@@ -8,6 +8,17 @@
           新規登録 🎉
         </h1>
 
+        <div v-if="errors">
+          <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-10" role="alert">
+          <strong class="font-bold">入力項目エラー</strong><br />
+          <ul>
+            <li><span class="block sm:inline">{{ emailError }}</span></li>
+            <li><span class="block sm:inline">{{ passwordError }}</span></li>
+            <li><span class="block sm:inline">{{ passwordConfirmError }}</span></li>
+          </ul>
+        </div>
+
+        </div>
         <input
           v-model="email"
           type="text"
@@ -23,17 +34,21 @@
           name="password"
           placeholder="Password"
         >
-        <!-- <input
+
+        <input
+          v-model="passwordConfirm"
           type="password"
           class="block border border-grey-light w-full p-3 rounded mb-4"
-          name="confirm_password"
+          name="passwordConfirm"
           placeholder="Confirm Password"
-        /> -->
+        />
 
         <button
           type="submit"
-          class="block border border-grey-light w-full p-3 rounded mb-4 bg-indigo-500 hover:bg-indigo-700 text-white"
+          :class="validInput ? 'bg-indigo-500 hover:bg-indigo-700' : 'bg-gray-500'"
+          class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
           @click="register"
+          :disabled="!validInput"
         >
           登録
         </button>
@@ -100,13 +115,12 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { computed } from 'vue'
+import { useField } from 'vee-validate';
 
 export default {
   setup() {
     const { signUp, loginWithGoogle, loginWithTwitter } = useAuth();
-    const email = ref("")
-    const password = ref("")
 
     const register = () => {
       signUp(email.value, password.value)
@@ -120,12 +134,55 @@ export default {
       loginWithTwitter()
     }
 
+    const validInput = computed(() => {
+      if ((email.value && password.value && passwordConfirm.value) && (!emailError.value && !passwordError.value && !passwordConfirmError.value)) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+
+    const errors = computed(() => {
+      if (emailError.value || passwordError.value || passwordConfirmError.value) {
+        return true;
+      } else {
+        return false;
+      }
+    })
+
+
+    errors
+
+    const { value: email, errorMessage: emailError } = useField(
+      "email",
+      "required|email",
+    );
+
+    const { value: password, errorMessage: passwordError } = useField(
+      "password",
+      "required|min:5",
+    );
+
+    const { value: passwordConfirm, errorMessage: passwordConfirmError } = useField('passwordConfirm', (passwordConfirm) => {
+      if ( passwordConfirm === password.value) {
+        return true;
+      }
+      return 'パスワードと一致してません';
+    });
+
+
     return {
-      email,
-      password,
       register,
       signInWithGoogle,
-      signInWithTwitter
+      signInWithTwitter,
+      email,
+      emailError,
+      password,
+      passwordError,
+      passwordConfirm,
+      passwordConfirmError,
+      validInput,
+      errors
     }
   },
 }

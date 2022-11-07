@@ -1250,6 +1250,16 @@
     "@typescript-eslint/types" "5.40.0"
     "eslint-visitor-keys" "^3.3.0"
 
+"@vee-validate/i18n@^4.7.2":
+  "integrity" "sha512-VG/G4BcqLT/MO7zYoYjFpmONoKzycEx1PqhPUXR4UMcc6Vkm3t2WwtwGufFA21VB2ytNF04ueTpS5Zt3h8JXzw=="
+  "resolved" "https://registry.npmjs.org/@vee-validate/i18n/-/i18n-4.7.2.tgz"
+  "version" "4.7.2"
+
+"@vee-validate/rules@^4.7.2":
+  "integrity" "sha512-hE87ahGp2q31l2286VouObIOjikcdz0P2Lhuq2E8Iyhapi7rpQqUxG0YXUgvBomK34/mc4IiG5IqBkmdniVPdQ=="
+  "resolved" "https://registry.npmjs.org/@vee-validate/rules/-/rules-4.7.2.tgz"
+  "version" "4.7.2"
+
 "@vercel/nft@^0.22.1":
   "integrity" "sha512-lYYZIoxRurqDOSoVIdBicGnpUIpfyaS5qVjdPq+EfI285WqtZK3NK/dyCkiyBul+X2U2OEhRyeMdXPCHGJbohw=="
   "resolved" "https://registry.npmjs.org/@vercel/nft/-/nft-0.22.1.tgz"
@@ -6113,6 +6123,13 @@
   "integrity" "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg=="
   "resolved" "https://registry.npmjs.org/vary/-/vary-1.1.2.tgz"
   "version" "1.1.2"
+
+"vee-validate@^4.7.2":
+  "integrity" "sha512-SbrL1HUzpu6D6Og/Q+BFx0LN6B48Z7OrkvQCXwaRyoELEeWPO6SOx1v5t1Sg3OszNtiLH7Q6BgKj/7pzTK1wIw=="
+  "resolved" "https://registry.npmjs.org/vee-validate/-/vee-validate-4.7.2.tgz"
+  "version" "4.7.2"
+  dependencies:
+    "@vue/devtools-api" "^6.1.4"
 
 "vite-node@^0.23.4":
   "integrity" "sha512-8VuDGwTWIvwPYcbw8ZycMlwAwqCmqZfLdFrDK75+o+6bWYpede58k6AAXN9ioU+icW82V4u1MzkxLVhhIoQ9xA=="
