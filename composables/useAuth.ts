@@ -55,7 +55,12 @@ export const useAuth = () => {
               })
             .catch(reject)
         })
-        .catch(reject)
+        .catch((error) => {
+          console.log(`エラー: ${error}`)
+          const errorMessage = error.message;
+          errorToaste('ログインに失敗しました😭')
+          resolve(errorMessage)
+        })
     })
   }
 

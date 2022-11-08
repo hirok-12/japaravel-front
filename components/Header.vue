@@ -139,7 +139,7 @@ export default {
       },
       {
         id: 2,
-        url: "/signup",
+        url: "/login",
         name: 'ログイン',
         event: ''
       },
