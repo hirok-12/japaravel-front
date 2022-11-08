@@ -59,7 +59,10 @@
         :class="showMenu ? 'flex' : 'hidden'"
         class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto"
       >
-        <div v-if="token" class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+        <div
+          v-if="token"
+          class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
+        >
           <nuxt-link
             v-for="item in loginHeaderItems"
             :key="item.id"
@@ -70,7 +73,10 @@
             {{ item.name }}
           </nuxt-link>
         </div>
-        <div v-else class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+        <div
+          v-else
+          class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
+        >
           <nuxt-link
             v-for="item in notLoginHeaderItems"
             :key="item.id"
