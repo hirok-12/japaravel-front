@@ -152,9 +152,6 @@ export default {
       }
     })
 
-
-    errors
-
     const { value: email, errorMessage: emailError } = useField(
       "email",
       "required|email",

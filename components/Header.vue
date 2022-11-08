@@ -59,38 +59,27 @@
         :class="showMenu ? 'flex' : 'hidden'"
         class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto"
       >
-        <div class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
-          <NuxtLink
-            to="/signup"
+        <div v-if="token" class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+          <nuxt-link
+            v-for="item in loginHeaderItems"
+            :key="item.id"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
+            :to="item.url"
+            @click="select(item.event)"
           >
-            <span>無料登録</span>
-          </NuxtLink>
-          <NuxtLink
-            href=""
+            {{ item.name }}
+          </nuxt-link>
+        </div>
+        <div v-else class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col">
+          <nuxt-link
+            v-for="item in notLoginHeaderItems"
+            :key="item.id"
             class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
+            :to="item.url"
+            @click="select(item.event)"
           >
-            <span>ログイン</span>
-          </NuxtLink>
-          <NuxtLink
-            href=""
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
-            @click="logOut"
-          >
-            <span>ログアウト</span>
-          </NuxtLink>
-          <NuxtLink
-            to="/terms"
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
-          >
-            <span>利用規約</span>
-          </NuxtLink>
-          <a
-            href=""
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
-          >
-            <span>問い合わせ</span>
-          </a>
+            {{ item.name }}
+          </nuxt-link>
         </div>
       </div>
     </nav>
@@ -98,20 +87,75 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 
 export default {
   setup(_, { emit }) {
     const { signOut } = useAuth();
     const showMenu = ref(false)
+    const { token } = useAuth();
 
     const openModal = () => {
       emit('cutom', true)
     }
 
-    const logOut = () => {
-      signOut()
+    const select = (itemname) => {
+      switch (itemname) {
+        case 'logOut':
+          signOut()
+          break;
+        default:
+          console.log(`Sorry, we are out of ${itemname}.`);
+      }
     }
+
+    const loginHeaderItems = [
+      {
+        id: 1,
+        url: "/signup",
+        name: 'ログアウト',
+        event: 'logOut'
+      },
+      {
+        id: 2,
+        url: "/terms",
+        name: '利用規約',
+        event: ''
+      },
+      {
+        id: 3,
+        url: "",
+        name: '問い合わせ',
+        event: ''
+      }
+    ]
+
+    const notLoginHeaderItems = [
+      {
+        id: 1,
+        url: "/signup",
+        name: '無料登録',
+        event: ''
+      },
+      {
+        id: 2,
+        url: "/signup",
+        name: 'ログイン',
+        event: ''
+      },
+      {
+        id: 3,
+        url: "/terms",
+        name: '利用規約',
+        event: ''
+      },
+      {
+        id: 4,
+        url: "",
+        name: '問い合わせ',
+        event: ''
+      }
+    ]
 
     const toggleNav = () => (showMenu.value = !showMenu.value)
 
@@ -119,7 +163,10 @@ export default {
       showMenu,
       toggleNav,
       openModal,
-      logOut
+      loginHeaderItems,
+      notLoginHeaderItems,
+      select,
+      token
     }
   },
 }

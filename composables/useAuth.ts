@@ -15,16 +15,20 @@ export const useAuth = () => {
 
   // メールアドレス新規登録関数
   async function signUp(email:string, password:string){
-    return await new Promise((resolve)=>{
+    return await new Promise((resolve, reject)=>{
       // getAuth()でAuthを取得
       const auth = getAuth()
       // メールアドレスとパスワードでアカウントを作成する
       createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        console.log(userCredential)
-        // サインアップできたらログインする
-        successToaste('新規登録完了🎉')
-        resolve("success")
+        userCredential.user
+        .getIdToken()
+          .then((idToken) => {
+            token.value = idToken
+            successToaste('新規登録完了🎉')
+            resolve('成功')
+          })
+        .catch(reject)
       })
       .catch((error) => {
         console.log(`エラー: ${error}`)
