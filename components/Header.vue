@@ -59,6 +59,7 @@
         :class="showMenu ? 'flex' : 'hidden'"
         class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto"
       >
+        <!-- ログイン中のヘッダー -->
         <div
           v-if="token"
           class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
@@ -73,6 +74,7 @@
             {{ item.name }}
           </nuxt-link>
         </div>
+        <!-- ログインアウト中のヘッダー -->
         <div
           v-else
           class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
@@ -93,13 +95,13 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue'
+import { ref, onMounted } from 'vue'
 
 export default {
   setup(_, { emit }) {
     const { signOut } = useAuth();
     const showMenu = ref(false)
-    const { token } = useAuth();
+    const { token, checkAuthState } = useAuth();
 
     const openModal = () => {
       emit('cutom', true)
@@ -111,7 +113,7 @@ export default {
           signOut()
           break;
         default:
-          console.log(`Sorry, we are out of ${itemname}.`);
+          break;
       }
     }
 
@@ -164,6 +166,10 @@ export default {
     ]
 
     const toggleNav = () => (showMenu.value = !showMenu.value)
+
+    onMounted(() => {
+      checkAuthState()
+    })
 
     return {
       showMenu,
