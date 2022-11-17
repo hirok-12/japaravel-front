@@ -56,14 +56,35 @@
         </svg>
       </button>
       <div
-        :class="showMenu ? 'flex' : 'hidden'"
-        class="top-nav w-full lg:inline-flex lg:flex-grow lg:w-auto"
+        :class="showMenu ? '' : 'hidden'"
+        class="w-full lg:inline-flex lg:flex-grow lg:w-auto"
       >
         <!-- ログイン中のヘッダー -->
         <div
           v-if="token"
           class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
         >
+          <div
+            v-if="showMenu == true"
+            class="cursor-pointer"
+            @click="linkMypage"
+          >
+            <div
+              :class="showMenu ? 'my-3' : ''"
+              class="flex justify-center"
+            >
+              <div>
+                <img
+                  src="https://i.imgur.com/z4YSzDD.jpg"
+                  class="rounded-full hover:ring-4"
+                  width="70"
+                >
+              </div>
+            </div>
+            <div class="flex justify-center underline hover:text-blue-600">
+              Hiroki
+            </div>
+          </div>
           <nuxt-link
             v-for="item in loginHeaderItems"
             :key="item.id"
@@ -73,6 +94,19 @@
           >
             {{ item.name }}
           </nuxt-link>
+          <div
+            v-if="showMenu == false"
+            class="flex justify-center cursor-pointer"
+            @click="linkMypage"
+          >
+            <div>
+              <img
+                src="https://i.imgur.com/z4YSzDD.jpg"
+                class="rounded-full hover:ring-4"
+                width="50"
+              >
+            </div>
+          </div>
         </div>
         <!-- ログインアウト中のヘッダー -->
         <div
@@ -107,6 +141,10 @@ export default {
       emit('cutom', true)
     }
 
+    const linkMypage = () => {
+      return navigateTo('/users/' + 4)
+    }
+
     const select = (itemname) => {
       switch (itemname) {
         case 'logOut':
@@ -116,6 +154,17 @@ export default {
           break;
       }
     }
+
+    const loginRouting = (item) => {
+      switch (item.name) {
+        case 'プロフィール':
+          return { name:'users-id', params:{ id: token } }
+        default:
+          return item.url
+      }
+    }
+
+    const toggleNav = () => (showMenu.value = !showMenu.value)
 
     const loginHeaderItems = [
       {
@@ -165,8 +214,6 @@ export default {
       }
     ]
 
-    const toggleNav = () => (showMenu.value = !showMenu.value)
-
     onMounted(() => {
       checkAuthState()
     })
@@ -178,7 +225,9 @@ export default {
       loginHeaderItems,
       notLoginHeaderItems,
       select,
-      token
+      token,
+      loginRouting,
+      linkMypage
     }
   },
 }
