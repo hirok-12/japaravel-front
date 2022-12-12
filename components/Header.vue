@@ -21,7 +21,7 @@
         <span class="text-xl font-bold tracking-wide"> Japaravel </span>
       </NuxtLink>
       <button
-        class="inline-flex p-3 hover:bg-gray-100 rounded lg:hidden ml-auto"
+        class="inline-flex p-3 hover:bg-gray-100 rounded ml-auto"
         @click="toggleNav"
       >
         <svg
@@ -57,12 +57,12 @@
       </button>
       <div
         :class="showMenu ? '' : 'hidden'"
-        class="w-full lg:inline-flex lg:flex-grow lg:w-auto"
+        class="w-full"
       >
         <!-- ログイン中のヘッダー -->
         <div
           v-if="token"
-          class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
+          class="flex flex-col"
         >
           <div
             v-if="showMenu == true"
@@ -88,7 +88,7 @@
           <nuxt-link
             v-for="item in loginHeaderItems"
             :key="item.id"
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
+            class="w-full px-3 py-2 hover:bg-gray-100"
             :to="item.url"
             @click="select(item.event)"
           >
@@ -111,12 +111,12 @@
         <!-- ログインアウト中のヘッダー -->
         <div
           v-else
-          class="lg:inline-flex lg:flex-row lg:ml-auto flex flex-col"
+          class="flex flex-col"
         >
           <nuxt-link
             v-for="item in notLoginHeaderItems"
             :key="item.id"
-            class="lg:inline-flex lg:w-auto w-full px-3 py-2 hover:bg-gray-100"
+            class="w-full px-3 py-2 hover:bg-gray-100"
             :to="item.url"
             @click="select(item.event)"
           >
