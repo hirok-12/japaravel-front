@@ -23,6 +23,7 @@
       <div class="ml-auto">
         <button
           class="inline-flex p-2 hover:bg-gray-100 rounded"
+          @click="toVisit"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -209,6 +210,10 @@ export default {
 
     const toggleNav = () => (showMenu.value = !showMenu.value)
 
+    const toVisit = () => {
+      return navigateTo('/users/' + 4  + '/visits')
+    }
+
     const loginHeaderItems = [
       {
         id: 1,
@@ -270,7 +275,8 @@ export default {
       select,
       token,
       loginRouting,
-      linkMypage
+      linkMypage,
+      toVisit
     }
   },
 }

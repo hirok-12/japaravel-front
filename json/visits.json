@@ -1,0 +1,249 @@
+{
+  "Hokkaidou_touhoku": [
+    {
+      "engName": "Hokkaidou",
+      "jpName": "北海道",
+      "isVisit": true
+    },
+    {
+      "engName": "Aomori",
+      "jpName": "愛森",
+      "isVisit": false
+    },
+    {
+      "engName": "Iwate",
+      "jpName": "岩手",
+      "isVisit": true
+    },
+    {
+      "engName": "Akita",
+      "jpName": "秋田",
+      "isVisit": false
+    },
+    {
+      "engName": "yamagata",
+      "jpName": "山形",
+      "isVisit": true
+    },
+    {
+      "engName": "Miyagi",
+      "jpName": "みやぎ",
+      "isVisit": false
+    },
+    {
+      "engName": "Fukushima",
+      "jpName": "福島",
+      "isVisit": true
+    }
+  ],
+  "Kantou": [
+    {
+      "engName": "Ibaragi",
+      "jpName": "茨城",
+      "isVisit": true
+    },
+    {
+      "engName": "Totigi",
+      "jpName": "栃木",
+      "isVisit": true
+    },
+    {
+      "engName": "Gunma",
+      "jpName": "群馬",
+      "isVisit": false
+    },
+    {
+      "engName": "Saitama",
+      "jpName": "埼玉",
+      "isVisit": false
+    },
+    {
+      "engName": "Chiba",
+      "jpName": "千葉",
+      "isVisit": false
+    },
+    {
+      "engName": "Tokyo",
+      "jpName": "東京",
+      "isVisit": true
+    },
+    {
+      "engName": "Kanagawa",
+      "jpName": "神奈川",
+      "isVisit": false
+    }
+  ],
+  "Chubu": [
+    {
+      "engName": "Niigata",
+      "jpName": "新潟",
+      "isVisit": true
+    },
+    {
+      "engName": "Toyama",
+      "jpName": "富山",
+      "isVisit": false
+    },
+    {
+      "engName": "Ishikawa",
+      "jpName": "石川",
+      "isVisit": true
+    },
+    {
+      "engName": "Fukui",
+      "jpName": "福井",
+      "isVisit": false
+    },
+    {
+      "engName": "Yamanashi",
+      "jpName": "山梨",
+      "isVisit": false
+    },
+    {
+      "engName": "Nagano",
+      "jpName": "長野",
+      "isVisit": true
+    },
+    {
+      "engName": "Gifu",
+      "jpName": "岐阜",
+      "isVisit": false
+    },
+    {
+      "engName": "Shizuoka",
+      "jpName": "静岡",
+      "isVisit": true
+    },
+    {
+      "engName": "Aichi",
+      "jpName": "愛知",
+      "isVisit": false
+    }
+  ],
+  "kinki": [
+    {
+      "engName": "Mie",
+      "jpName": "三重",
+      "isVisit": true
+    },
+    {
+      "engName": "Shiga",
+      "jpName": "滋賀",
+      "isVisit": true
+    },
+    {
+      "engName": "Kyoto",
+      "jpName": "京都",
+      "isVisit": false
+    },
+    {
+      "engName": "Oosaka",
+      "jpName": "大阪",
+      "isVisit": false
+    },
+    {
+      "engName": "Hyogo",
+      "jpName": "兵庫",
+      "isVisit": false
+    },
+    {
+      "engName": "Nara",
+      "jpName": "奈良",
+      "isVisit": false
+    },
+    {
+      "engName": "Wakayama",
+      "jpName": "和歌山",
+      "isVisit": false
+    }
+  ],
+  "Tyugoku_shikoku": [
+    {
+      "engName": "Tottori",
+      "jpName": "鳥取",
+      "isVisit": false
+    },
+    {
+      "engName": "Shimane",
+      "jpName": "島根",
+      "isVisit": true
+    },
+    {
+      "engName": "Okayama",
+      "jpName": "岡山",
+      "isVisit": false
+    },
+    {
+      "engName": "Hiroshima",
+      "jpName": "広島",
+      "isVisit": false
+    },
+    {
+      "engName": "Yamaguchi",
+      "jpName": "山口",
+      "isVisit": true
+    },
+    {
+      "engName": "Tokushima",
+      "jpName": "徳島",
+      "isVisit": false
+    },
+    {
+      "engName": "Kagawa",
+      "jpName": "香川",
+      "isVisit": false
+    },
+    {
+      "engName": "Ehime",
+      "jpName": "愛媛",
+      "isVisit": true
+    },
+    {
+      "engName": "Kouchi",
+      "jpName": "高知",
+      "isVisit": true
+    }
+  ],
+  "Kyushu_okinawa": [
+    {
+      "engName": "Fukuoka",
+      "jpName": "福岡",
+      "isVisit": true
+    },
+    {
+      "engName": "Saga",
+      "jpName": "佐賀",
+      "isVisit": false
+    },
+    {
+      "engName": "Nagasaki",
+      "jpName": "長崎",
+      "isVisit": false
+    },
+    {
+      "engName": "Kumamoto",
+      "jpName": "熊本",
+      "isVisit": false
+    },
+    {
+      "engName": "Ooita",
+      "jpName": "大分",
+      "isVisit": true
+    },
+    {
+      "engName": "Miyazaki",
+      "jpName": "宮崎",
+      "isVisit": true
+    },
+    {
+      "engName": "Kagoshima",
+      "jpName": "鹿児島",
+      "isVisit": false
+    },
+    {
+      "engName": "Okinawa",
+      "jpName": "沖縄",
+      "isVisit": true
+    }
+  ]
+}
