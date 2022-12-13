@@ -193,8 +193,10 @@ export default {
       switch (itemname) {
         case 'logOut':
           signOut()
+          showMenu.value = !showMenu.value
           break;
         default:
+          showMenu.value = !showMenu.value
           break;
       }
     }
