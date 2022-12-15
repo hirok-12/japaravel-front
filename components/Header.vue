@@ -1,5 +1,5 @@
 <template>
-  <div class="sticky top-0 z-50 bg-white">
+  <div class="sticky top-0 z-1 bg-white">
     <nav class="flex items-center p-3 flex-wrap">
       <NuxtLink
         to="/"
@@ -186,6 +186,7 @@ export default {
     }
 
     const linkMypage = () => {
+      showMenu.value = !showMenu.value
       return navigateTo('/users/' + 4)
     }
 
