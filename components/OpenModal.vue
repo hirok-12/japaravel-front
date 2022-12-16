@@ -15,12 +15,12 @@
       </div>
       <div class="p-3 mt-2 text-center space-x-4 md:block">
         <button
-          class="mb-2 md:mb-0 bg-white px-5 py-2 text-sm shadow-sm font-medium tracking-wider border text-gray-600 rounded-md hover:shadow-lg hover:bg-gray-100"
+          class="pryimary_btn"
         >
           新規投稿
         </button>
         <button
-          class="mb-2 md:mb-0 bg-purple-500 border border-purple-500 px-5 py-2 text-sm shadow-sm font-medium tracking-wider text-white rounded-md hover:shadow-lg hover:bg-purple-600"
+          class="secondary_btn"
           @click="clickEvent"
         >
           キャンセル

@@ -26,7 +26,7 @@
       <button
         v-for="item in data.Hokkaidou_touhoku"
         :key="item.id"
-        :class="[item.isVisit == true ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3 mb-3' : ' hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded-full ml-3 border mb-3']"
+        :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
         @click="openModal(item)"
       >
         {{ item.jpName }}
@@ -40,7 +40,7 @@
       <button
         v-for="item in data.Kantou"
         :key="item.id"
-        :class="[item.isVisit == true ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3 mb-3' : ' hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded-full ml-3 border mb-3']"
+        :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
         @click="openModal(item)"
       >
         {{ item.jpName }}
@@ -54,7 +54,7 @@
       <button
         v-for="item in data.Chubu"
         :key="item.id"
-        :class="[item.isVisit == true ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3 mb-3' : ' hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded-full ml-3 border mb-3']"
+        :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
         @click="openModal(item)"
       >
         {{ item.jpName }}
@@ -68,7 +68,7 @@
       <button
         v-for="item in data.Kantou"
         :key="item.id"
-        :class="[item.isVisit == true ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3 mb-3' : ' hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded-full ml-3 border mb-3']"
+        :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
         @click="openModal(item)"
       >
         {{ item.jpName }}
@@ -82,7 +82,7 @@
       <button
         v-for="item in data.Tyugoku_shikoku"
         :key="item.id"
-        :class="[item.isVisit == true ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3 mb-3' : ' hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded-full ml-3 border mb-3']"
+        :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
         @click="openModal(item)"
       >
         {{ item.jpName }}
@@ -96,7 +96,7 @@
       <button
         v-for="item in data.Kyushu_okinawa"
         :key="item.id"
-        :class="[item.isVisit == true ? 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full ml-3 mb-3' : ' hover:bg-blue-700 hover:text-white font-bold py-2 px-4 rounded-full ml-3 border mb-3']"
+        :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
         @click="openModal(item)"
       >
         {{ item.jpName }}

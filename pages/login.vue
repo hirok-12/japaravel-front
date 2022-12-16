@@ -26,8 +26,8 @@
 
         <button
           type="submit"
-          :class="validInput ? 'bg-indigo-500 hover:bg-indigo-700' : 'bg-gray-500'"
-          class="block border border-grey-light w-full p-3 rounded mb-4 text-white"
+          :class="validInput ? 'pryimary_btn' : 'diable_pryimary_btn'"
+          class="w-full"
           :disabled="!validInput"
           @click="login"
         >
