@@ -117,7 +117,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
 import { useField } from 'vee-validate';
 
 export default {

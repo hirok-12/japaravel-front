@@ -33,8 +33,6 @@
 </template>
 
 <script setup>
-import data from "/json/user.json"
-
 const toEdit = () => {
   return navigateTo('/users/' + 4  + '/edit')
 }
