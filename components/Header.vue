@@ -213,7 +213,7 @@ export default {
     const toggleNav = () => (showMenu.value = !showMenu.value)
 
     const toVisit = () => {
-      howMenu.value = !showMenu.value
+      showMenu.value = !showMenu.value
       return navigateTo('/users/' + 4  + '/visits')
     }
 
