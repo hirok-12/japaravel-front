@@ -84,43 +84,30 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const { signIn, loginWithGoogle, loginWithTwitter } = useAuth();
-    const email = ref('')
-    const password = ref('')
+<script setup>
+  const { signIn, loginWithGoogle, loginWithTwitter } = useAuth();
+  const email = ref('')
+  const password = ref('')
 
-    const login = () => {
-      signIn(email.value, password.value)
+  const login = () => {
+    signIn(email.value, password.value)
+  }
+
+  const signInWithGoogle = () => {
+    loginWithGoogle()
+  }
+
+  const signInWithTwitter = () => {
+    loginWithTwitter()
+  }
+
+  const validInput = computed(() => {
+    if (email.value && password.value) {
+      return true;
+    } else {
+      return false;
     }
-
-    const signInWithGoogle = () => {
-      loginWithGoogle()
-    }
-
-    const signInWithTwitter = () => {
-      loginWithTwitter()
-    }
-
-    const validInput = computed(() => {
-      if (email.value && password.value) {
-        return true;
-      } else {
-        return false;
-      }
-    })
-
-    return {
-      login,
-      signInWithGoogle,
-      signInWithTwitter,
-      validInput,
-      email,
-      password
-    }
-  },
-}
+  })
 </script>
 
 <style></style>

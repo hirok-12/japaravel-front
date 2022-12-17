@@ -27,6 +27,7 @@ export const useAuth = () => {
             token.value = idToken
             successToaste('新規登録完了🎉')
             resolve('成功')
+            navigateTo('/')
           })
         .catch(reject)
       })
@@ -52,6 +53,7 @@ export const useAuth = () => {
                 token.value = idToken
                 successToaste('ログインしました🎉')
                 resolve()
+                navigateTo('/')
               })
             .catch(reject)
         })
@@ -74,6 +76,7 @@ export const useAuth = () => {
           token.value = null
           successToaste('ログアウトしました🎉')
           resolve()
+          navigateTo('/')
         })
         .catch((error) => {
           errorToaste('ログアウトに失敗しました😭')
@@ -122,6 +125,7 @@ export const useAuth = () => {
         const user = result.user;
         successToaste('ログインしました🎉')
         console.log({ credential, token, user });
+        navigateTo('/')
     })
     .catch((error) => {
         const errorCode = error.code;
@@ -144,6 +148,7 @@ export const useAuth = () => {
         const user = result.user;
         successToaste('ログインしました🎉')
         console.log({ credential, token, user });
+        navigateTo('/')
     })
     .catch((error) => {
         const errorCode = error.code;
