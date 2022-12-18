@@ -9,21 +9,7 @@
     </div>
 
     <select
-      class="form-select appearance-none
-        block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding bg-no-repeat
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+      class="block border border-grey-light w-full p-3 rounded mb-4"
       aria-label="Default select example"
     >
       <option selected>
@@ -644,71 +630,71 @@
         type="submit"
         class="pryimary_btn w-full md:w-1/3"
       >
-        検索するx
+        検索する
       </button>
     </div>
   </div>
 </template>
 
 <script setup>
-  const genres = [
-    {
-      id: 1,
-      name: 'グルメ',
-    },
-    {
-      id: 2,
-      name: '自然',
-    },
-    {
-      id: 3,
-      name: '絶景',
-    },
-    {
-      id: 4,
-      name: '温泉',
-    },
-    {
-      id: 5,
-      name: '買い物',
-    },
-    {
-      id: 6,
-      name: '日本文化',
-    },
-    {
-      id: 7,
-      name: '祭り',
-    },
-    {
-      id: 8,
-      name: 'レジャー施設',
-    },
-    {
-      id: 9,
-      name: 'スポーツ観戦',
-    },
-    {
-      id: 10,
-      name: 'テーマパーク',
-    },
-    {
-      id: 11,
-      name: 'エンタメ',
-    },
-    {
-      id: 12,
-      name: '歴史',
-    },
-    {
-      id: 13,
-      name: '聖地巡礼',
-    },
-    {
-      id: 14,
-      name: 'その他',
-    }
-  ]
+const genres = [
+  {
+    id: 1,
+    name: 'グルメ',
+  },
+  {
+    id: 2,
+    name: '自然',
+  },
+  {
+    id: 3,
+    name: '絶景',
+  },
+  {
+    id: 4,
+    name: '温泉',
+  },
+  {
+    id: 5,
+    name: '買い物',
+  },
+  {
+    id: 6,
+    name: '日本文化',
+  },
+  {
+    id: 7,
+    name: '祭り',
+  },
+  {
+    id: 8,
+    name: 'レジャー施設',
+  },
+  {
+    id: 9,
+    name: 'スポーツ観戦',
+  },
+  {
+    id: 10,
+    name: 'テーマパーク',
+  },
+  {
+    id: 11,
+    name: 'エンタメ',
+  },
+  {
+    id: 12,
+    name: '歴史',
+  },
+  {
+    id: 13,
+    name: '聖地巡礼',
+  },
+  {
+    id: 14,
+    name: 'その他',
+  }
+]
 </script>
 
 <style></style>
