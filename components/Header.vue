@@ -47,6 +47,7 @@
         </button>
         <button
           class="inline-flex p-2 hover:bg-gray-100 rounded"
+          @click="toSearch"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -172,115 +173,98 @@
   </div>
 </template>
 
-<script>
+<script setup>
+  const { signOut } = useAuth();
+  const showMenu = ref(false)
+  const { token, checkAuthState } = useAuth();
 
-export default {
-  setup(_, { emit }) {
-    const { signOut } = useAuth();
-    const showMenu = ref(false)
-    const { token, checkAuthState } = useAuth();
+  const linkMypage = () => {
+    showMenu.value = !showMenu.value
+    return navigateTo('/users/' + 4)
+  }
 
-    const openModal = () => {
-      emit('cutom', true)
+  const select = (itemname) => {
+    switch (itemname) {
+      case 'logOut':
+        signOut()
+        showMenu.value = !showMenu.value
+        break;
+      default:
+        showMenu.value = !showMenu.value
+        break;
     }
+  }
 
-    const linkMypage = () => {
-      showMenu.value = !showMenu.value
-      return navigateTo('/users/' + 4)
+  const loginRouting = (item) => {
+    switch (item.name) {
+      case 'プロフィール':
+        return { name:'users-id', params:{ id: token } }
+      default:
+        return item.url
     }
+  }
 
-    const select = (itemname) => {
-      switch (itemname) {
-        case 'logOut':
-          signOut()
-          showMenu.value = !showMenu.value
-          break;
-        default:
-          showMenu.value = !showMenu.value
-          break;
-      }
+  const toggleNav = () => (showMenu.value = !showMenu.value)
+
+  const toVisit = () => {
+    showMenu.value = false
+    return navigateTo('/users/' + 4  + '/visits')
+  }
+
+  const toSearch = () => {
+    showMenu.value = false
+    return navigateTo('/search')
+  }
+
+  const loginHeaderItems = [
+    {
+      id: 1,
+      url: "/signup",
+      name: 'ログアウト',
+      event: 'logOut'
+    },
+    {
+      id: 2,
+      url: "/terms",
+      name: '利用規約',
+      event: ''
+    },
+    {
+      id: 3,
+      url: "",
+      name: '問い合わせ',
+      event: ''
     }
+  ]
 
-    const loginRouting = (item) => {
-      switch (item.name) {
-        case 'プロフィール':
-          return { name:'users-id', params:{ id: token } }
-        default:
-          return item.url
-      }
+  const notLoginHeaderItems = [
+    {
+      id: 1,
+      url: "/signup",
+      name: '無料登録',
+      event: ''
+    },
+    {
+      id: 2,
+      url: "/login",
+      name: 'ログイン',
+      event: ''
+    },
+    {
+      id: 3,
+      url: "/terms",
+      name: '利用規約',
+      event: ''
+    },
+    {
+      id: 4,
+      url: "",
+      name: '問い合わせ',
+      event: ''
     }
+  ]
 
-    const toggleNav = () => (showMenu.value = !showMenu.value)
-
-    const toVisit = () => {
-      showMenu.value = false
-      return navigateTo('/users/' + 4  + '/visits')
-    }
-
-    const loginHeaderItems = [
-      {
-        id: 1,
-        url: "/signup",
-        name: 'ログアウト',
-        event: 'logOut'
-      },
-      {
-        id: 2,
-        url: "/terms",
-        name: '利用規約',
-        event: ''
-      },
-      {
-        id: 3,
-        url: "",
-        name: '問い合わせ',
-        event: ''
-      }
-    ]
-
-    const notLoginHeaderItems = [
-      {
-        id: 1,
-        url: "/signup",
-        name: '無料登録',
-        event: ''
-      },
-      {
-        id: 2,
-        url: "/login",
-        name: 'ログイン',
-        event: ''
-      },
-      {
-        id: 3,
-        url: "/terms",
-        name: '利用規約',
-        event: ''
-      },
-      {
-        id: 4,
-        url: "",
-        name: '問い合わせ',
-        event: ''
-      }
-    ]
-
-    onMounted(() => {
-      checkAuthState()
-    })
-
-    return {
-      showMenu,
-      toggleNav,
-      openModal,
-      loginHeaderItems,
-      notLoginHeaderItems,
-      select,
-      token,
-      loginRouting,
-      linkMypage,
-      toVisit
-    }
-  },
-}
+  onMounted(() => {
+    checkAuthState()
+  })
 </script>
