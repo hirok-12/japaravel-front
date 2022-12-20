@@ -174,97 +174,97 @@
 </template>
 
 <script setup>
-  const { signOut } = useAuth();
-  const showMenu = ref(false)
-  const { token, checkAuthState } = useAuth();
+const { signOut } = useAuth();
+const showMenu = ref(false)
+const { token, checkAuthState } = useAuth();
 
-  const linkMypage = () => {
-    showMenu.value = !showMenu.value
-    return navigateTo('/users/' + 4)
+const linkMypage = () => {
+  showMenu.value = !showMenu.value
+  return navigateTo('/users/' + 4)
+}
+
+const select = (itemname) => {
+  switch (itemname) {
+    case 'logOut':
+      signOut()
+      showMenu.value = !showMenu.value
+      break;
+    default:
+      showMenu.value = !showMenu.value
+      break;
   }
+}
 
-  const select = (itemname) => {
-    switch (itemname) {
-      case 'logOut':
-        signOut()
-        showMenu.value = !showMenu.value
-        break;
-      default:
-        showMenu.value = !showMenu.value
-        break;
-    }
+const loginRouting = (item) => {
+  switch (item.name) {
+    case 'プロフィール':
+      return { name:'users-id', params:{ id: token } }
+    default:
+      return item.url
   }
+}
 
-  const loginRouting = (item) => {
-    switch (item.name) {
-      case 'プロフィール':
-        return { name:'users-id', params:{ id: token } }
-      default:
-        return item.url
-    }
+const toggleNav = () => (showMenu.value = !showMenu.value)
+
+const toVisit = () => {
+  showMenu.value = false
+  return navigateTo('/users/' + 4  + '/visits')
+}
+
+const toSearch = () => {
+  showMenu.value = false
+  return navigateTo('/search')
+}
+
+const loginHeaderItems = [
+  {
+    id: 1,
+    url: "/signup",
+    name: 'ログアウト',
+    event: 'logOut'
+  },
+  {
+    id: 2,
+    url: "/terms",
+    name: '利用規約',
+    event: ''
+  },
+  {
+    id: 3,
+    url: "",
+    name: '問い合わせ',
+    event: ''
   }
+]
 
-  const toggleNav = () => (showMenu.value = !showMenu.value)
-
-  const toVisit = () => {
-    showMenu.value = false
-    return navigateTo('/users/' + 4  + '/visits')
+const notLoginHeaderItems = [
+  {
+    id: 1,
+    url: "/signup",
+    name: '無料登録',
+    event: ''
+  },
+  {
+    id: 2,
+    url: "/login",
+    name: 'ログイン',
+    event: ''
+  },
+  {
+    id: 3,
+    url: "/terms",
+    name: '利用規約',
+    event: ''
+  },
+  {
+    id: 4,
+    url: "",
+    name: '問い合わせ',
+    event: ''
   }
+]
 
-  const toSearch = () => {
-    showMenu.value = false
-    return navigateTo('/search')
-  }
-
-  const loginHeaderItems = [
-    {
-      id: 1,
-      url: "/signup",
-      name: 'ログアウト',
-      event: 'logOut'
-    },
-    {
-      id: 2,
-      url: "/terms",
-      name: '利用規約',
-      event: ''
-    },
-    {
-      id: 3,
-      url: "",
-      name: '問い合わせ',
-      event: ''
-    }
-  ]
-
-  const notLoginHeaderItems = [
-    {
-      id: 1,
-      url: "/signup",
-      name: '無料登録',
-      event: ''
-    },
-    {
-      id: 2,
-      url: "/login",
-      name: 'ログイン',
-      event: ''
-    },
-    {
-      id: 3,
-      url: "/terms",
-      name: '利用規約',
-      event: ''
-    },
-    {
-      id: 4,
-      url: "",
-      name: '問い合わせ',
-      event: ''
-    }
-  ]
-
-  onMounted(() => {
-    checkAuthState()
-  })
+onMounted(() => {
+  checkAuthState()
+})
 </script>

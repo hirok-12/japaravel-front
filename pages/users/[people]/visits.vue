@@ -108,21 +108,21 @@
 </template>
 
 <script setup>
-  import data from "/json/visits.json";
+import data from "/json/visits.json";
 
-  const showContent = ref(false);
-  const prefecture = ref('');
+const showContent = ref(false);
+const prefecture = ref('');
 
-  const openModal = (item) => {
-    prefecture.value = item.jpName
-    if(item.isVisit == false) {
-      showContent.value = true;
-    }
-  };
+const openModal = (item) => {
+  prefecture.value = item.jpName
+  if(item.isVisit == false) {
+    showContent.value = true;
+  }
+};
 
-  const closeModal = () => {
-    showContent.value = false;
-  };
+const closeModal = () => {
+  showContent.value = false;
+};
 
 </script>
 
