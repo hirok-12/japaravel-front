@@ -23,12 +23,12 @@
       <div class="grid grid-cols-3 h-max gap-2">
         <div class="mb-4">
           <figure class="relative">
-            <a href="#">
+            <NuxtLink to="/visits">
               <img
                 src="@/assets/images/japanese_food.jpeg"
                 class="rounded-lg h-32 md:h-80 lg:h-96"
               >
-            </a>
+            </NuxtLink>
             <figcaption class="absolute bottom-6 px-2 text-lg text-white">
               <p>食べる</p>
             </figcaption>
@@ -36,12 +36,12 @@
         </div>
         <div class="mb-4">
           <figure class="relative">
-            <a href="#">
+            <NuxtLink to="/visits">
               <img
                 src="@/assets/images/culture.jpeg"
                 class="rounded-lg h-32 md:h-80 lg:h-96"
               >
-            </a>
+            </NuxtLink>
             <figcaption class="absolute bottom-6 px-2 text-lg text-white">
               <p>自然</p>
             </figcaption>
@@ -49,12 +49,12 @@
         </div>
         <div class="mb-4">
           <figure class="relative">
-            <a href="#">
+            <NuxtLink to="/visits">
               <img
                 src="@/assets/images/nature.jpeg"
                 class="rounded-lg h-32 md:h-80 lg:h-96"
               >
-            </a>
+            </NuxtLink>
             <figcaption class="absolute bottom-6 px-2 text-lg text-white">
               <p>日本文化</p>
             </figcaption>
@@ -65,27 +65,25 @@
   </div>
 </template>
 
-<script>
-export default {
-  setup() {
-    const pcView = ref(true)
-    const windowWidth = ref(0)
+<script setup>
+const pcView = ref(true)
+const windowWidth = ref(0)
 
-    const calculateWindowWidth = () => {
-      windowWidth.value = window.innerWidth
-      return (pcView.value = windowWidth.value > 768)
-    }
-
-    // resizeでウィンドウサイズ変更を検知
-    onMounted(() => {
-      window.addEventListener('resize', calculateWindowWidth)
-    })
-
-    return {
-      pcView,
-    }
-  },
+const calculateWindowWidth = () => {
+  windowWidth.value = window.innerWidth
+  return (pcView.value = windowWidth.value > 768)
 }
+
+// resizeでウィンドウサイズ変更を検知
+onMounted(() => {
+  window.addEventListener('resize', calculateWindowWidth)
+})
+
+const toSearchSpots = () => {
+  showMenu.value = false
+  return navigateTo('/visits')
+}
+
 </script>
 
 <style scoped>
