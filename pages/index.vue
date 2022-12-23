@@ -79,11 +79,6 @@ onMounted(() => {
   window.addEventListener('resize', calculateWindowWidth)
 })
 
-const toSearchSpots = () => {
-  showMenu.value = false
-  return navigateTo('/visits')
-}
-
 </script>
 
 <style scoped>
