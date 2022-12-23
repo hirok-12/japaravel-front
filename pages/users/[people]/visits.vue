@@ -3,6 +3,7 @@
     <OpenModal
       v-show="showContent"
       @from-child="closeModal"
+      @link-new-post="linkPost(e)"
     >
       {{ prefecture }}はまだ観光記録が保存されていません。
     </OpenModal>
@@ -124,6 +125,14 @@ const closeModal = () => {
   showContent.value = false;
 };
 
+const linkPost = () => {
+  return navigateTo({
+    path: '/users/' + 4 + '/posts/new'
+    // query: {
+    //   prefecture: `${prefecture.value}`
+    // }
+  });
+}
 </script>
 
 <style scoped>

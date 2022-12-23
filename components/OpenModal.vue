@@ -16,6 +16,7 @@
       <div class="p-3 mt-2 text-center space-x-4 md:block">
         <button
           class="pryimary_btn"
+          @click="clicNewPost"
         >
           新規投稿
         </button>
@@ -38,12 +39,17 @@ export default {
       context.emit('from-child');
     };
 
+    const clicNewPost = () => {
+      context.emit('link-new-post');
+    };
+
     const stopEvent = (event) => {
       event.stopPropagation();
     };
     return {
       clickEvent,
       stopEvent,
+      clicNewPost
     };
   },
 };
