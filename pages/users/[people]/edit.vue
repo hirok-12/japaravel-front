@@ -6,7 +6,7 @@
         for="username"
       >
         名前
-        <span class="bg-blue-500 text-sm text-white py-1 px-2 rounded-full">必須</span>
+        <span class="secondary_btn text-sm py-1 px-2 rounded-full">必須</span>
       </label>
 
       <input
