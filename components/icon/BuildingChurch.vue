@@ -43,7 +43,7 @@
 // defineProps<{ size: string }>()
 
 withDefaults(defineProps<{
-  size: string,
+  size?: string,
 }>(), { size: '24px' });
 </script>/
 
