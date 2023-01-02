@@ -109,10 +109,13 @@
 </template>
 
 <script setup>
+import { useRoute, useRouter } from 'vue-router'
 import data from "/json/visits.json";
 
 const showContent = ref(false);
 const prefecture = ref('');
+const router = useRouter()
+const route = useRoute()
 
 const openModal = (item) => {
   prefecture.value = item.jpName
@@ -126,11 +129,12 @@ const closeModal = () => {
 };
 
 const linkPost = () => {
+  // router.push('/users/' + 4 + '/posts/new')
   return navigateTo({
-    path: '/users/' + 4 + '/posts/new'
-    // query: {
-    //   prefecture: `${prefecture.value}`
-    // }
+    path: '/users/' + 4 + '/posts/new',
+    query: {
+      prefecture: `${prefecture.value}`
+    }
   });
 }
 </script>

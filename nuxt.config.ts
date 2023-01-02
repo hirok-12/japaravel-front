@@ -24,6 +24,7 @@ export default defineNuxtConfig({
   buildModules: ['@nuxtjs/tailwindcss'],
   css: ['@/assets/css/tailwind.css'],
   runtimeConfig: {
+    // public設定(サーバーサイド、クライアントサイド双方で参照可能)
     public: {
       FIREBASE_API_KEY: process.env.FIREBASE_API_KEY || '',
       FIREBASE_AUTH_DOMAIN: process.env.FIREBASE_AUTH_DOMAIN || '',
@@ -32,6 +33,7 @@ export default defineNuxtConfig({
       FIREBASE_MESSAGING_SENDER_ID: process.env.FIREBASE_MESSAGING_SENDER_ID || '',
       FIREBASE_API_ID: process.env.FIREBASE_API_ID || '',
       FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID || '',
+      GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY || '',
     },
   },
 })
