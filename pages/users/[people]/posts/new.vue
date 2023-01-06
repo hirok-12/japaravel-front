@@ -209,7 +209,7 @@
       <div class="flex flex-wrap">
         <div
           v-for="hashTag in hashTags"
-          class="secondary_btn rounded-full ml-2"
+          class="secondary_btn rounded-full mr-2"
         >
           {{ hashTag }}
         </div>

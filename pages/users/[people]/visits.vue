@@ -29,7 +29,7 @@
           v-for="item in data.Hokkaidou_touhoku"
           :key="item.id"
           :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
-          @click="openModal(item)"
+          @click="toAppropriatePage(item)"
         >
           {{ item.jpName }}
         </button>
@@ -43,7 +43,7 @@
           v-for="item in data.Kantou"
           :key="item.id"
           :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
-          @click="openModal(item)"
+          @click="toAppropriatePage(item)"
         >
           {{ item.jpName }}
         </button>
@@ -57,7 +57,7 @@
           v-for="item in data.Chubu"
           :key="item.id"
           :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
-          @click="openModal(item)"
+          @click="toAppropriatePage(item)"
         >
           {{ item.jpName }}
         </button>
@@ -71,7 +71,7 @@
           v-for="item in data.Kantou"
           :key="item.id"
           :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
-          @click="openModal(item)"
+          @click="toAppropriatePage(item)"
         >
           {{ item.jpName }}
         </button>
@@ -85,7 +85,7 @@
           v-for="item in data.Tyugoku_shikoku"
           :key="item.id"
           :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
-          @click="openModal(item)"
+          @click="toAppropriatePage(item)"
         >
           {{ item.jpName }}
         </button>
@@ -99,7 +99,7 @@
           v-for="item in data.Kyushu_okinawa"
           :key="item.id"
           :class="[item.isVisit == true ? 'pryimary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3' : 'secondary_btn font-bold py-2 px-4 rounded-full ml-3 mb-3']"
-          @click="openModal(item)"
+          @click="toAppropriatePage(item)"
         >
           {{ item.jpName }}
         </button>
@@ -117,10 +117,15 @@ const prefecture = ref('');
 const router = useRouter()
 const route = useRoute()
 
-const openModal = (item) => {
+const toAppropriatePage = (item) => {
   prefecture.value = item.jpName
   if(item.isVisit == false) {
     showContent.value = true;
+  } else {
+    router.push('/posts/4')
+    // return navigateTo({
+    //   // path: '/posts/4',
+    // });
   }
 };
 
