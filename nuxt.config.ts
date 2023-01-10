@@ -11,6 +11,30 @@ export default defineNuxtConfig({
           namae: 'viewport',
           content: 'width=device-width, user-scalable=yes,initial-scale=1.0',
         },
+        // TODO:後で適切なOGP設定に修正する
+        // OGP設定
+        // ページのURL（絶対パス）
+        { name: 'og:url', content: 'https://ja.nuxtjs.org/' },
+        // ページの種類。
+        // トップページなら"Website"、トップページ以外なら"Article"、
+        // ブログなら"blog"を設定する
+        { name: 'og:type', content: 'website' },
+        // ページの名前
+        { name: 'og:site_name', content: 'nuxtアプリ' },
+        // ページのタイトル
+        { name: 'og:title', content: '【nuxtアプリ】nuxtアプリについて' },
+        // ページの説明文
+        { name: 'og:description', content: 'これはnuxtアプリです' },
+        // SNS上でシェアされた際に表示する画像。絶対パスで記述
+        { name: 'og:image', content: 'https://res.cloudinary.com/nuxt/image/upload/w_1200,h_675,c_fill,f_auto/remote/nuxt-org/blog/case-study-livementor/main.png' },
+        // twitterのogp設定
+        // twitterでの表示形式を指定。
+        // "summary", "summary_large_image", "app", "player card"の4種類がある。
+        { name: 'twitter:card', content: 'summary' },
+        //  @から始まるサイトやブログの管理者のtwitterユーザーIDを指定(省略可能)
+        // { name: 'twitter:title', content: '@ユーザー名' },
+        //  @から始まるコンテンツ作成者/著者のtwitterユーザーIDを指定(省略可能)
+        // { name: 'twitter:creator', content: '@ユーザー名' },
       ],
       link: [
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
