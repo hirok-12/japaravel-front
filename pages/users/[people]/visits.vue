@@ -136,7 +136,7 @@ const closeModal = () => {
 const linkPost = () => {
   // router.push('/users/' + 4 + '/posts/new')
   return navigateTo({
-    path: '/users/' + 4 + '/posts/new',
+    path: '/posts/new',
     query: {
       prefecture: `${prefecture.value}`
     }

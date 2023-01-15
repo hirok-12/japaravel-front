@@ -3,10 +3,40 @@
     <div class="container max-w-md mx-auto flex-1 items-center justify-center px-2">
       <div class="bg-white px-6 py-8 text-black w-full">
         <h1 class="text-3xl text-center">
-          {{ $route.query.prefecture }}
+          {{ prefecture }}
         </h1>
       </div>
     </div>
+
+    <!-- 写真 -->
+    <div class="my-4">
+      <label
+        class="block text-gray-700 text-sm font-bold mx-2 mb-2"
+        for="file_input"
+      >
+        思い出の写真を選択
+        <span class="secondary_btn text-sm py-1 px-2 rounded-full">必須</span>
+      </label>
+      <div
+        v-if="url"
+        class="md:w-1/2"
+      >
+        <img
+          :src="url"
+          class="rounded"
+        >
+      </div>
+
+      <input
+        ref="preview"
+        name="file_input"
+        type="file"
+        class="block w-full text-sm text-gray-500 file:py-2 file:px-6 file:rounded file:border-1 file:border-gray-400 mb-4"
+        @change="uploadFile"
+      >
+    </div>
+
+    <!-- タイトル -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mx-2 mb-2"
@@ -18,40 +48,15 @@
 
       <input
         id="username"
+        v-model="title"
         type="text"
         class="block border border-grey-light w-full p-3 rounded mb-4"
         name="email"
         placeholder="田中太郎"
       >
     </div>
-    <div class="my-4">
-      <label
-        class="block text-gray-700 text-sm font-bold mx-2 mb-2"
-        for="file_input"
-      >
-        思い出の写真を選択
-        <span class="secondary_btn text-sm py-1 px-2 rounded-full">必須</span>
-      </label>
 
-      <input
-        ref="preview"
-        name="file_input"
-        type="file"
-        class="block w-full text-sm text-gray-500 file:py-2 file:px-6 file:rounded file:border-1 file:border-gray-400 mb-4"
-        @change="uploadFile"
-      >
-    </div>
-
-    <div
-      v-if="url"
-      class="md:w-1/2"
-    >
-      <img
-        :src="url"
-        class="rounded"
-      >
-    </div>
-
+    <!-- ジャンル -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mx-2 mb-2"
@@ -60,9 +65,10 @@
         旅行の種類選択（複数選択可能）
         <span class="secondary_btn text-sm py-1 px-2 rounded-full">必須</span>
       </label>
-      <Genre />
+      <Genre :check-values="['other']" />
     </div>
 
+    <!-- 訪問時期 -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mb-2"
@@ -74,11 +80,13 @@
 
       <input
         id="birthday"
+        v-model="time_of_visiting"
         type="date"
         class="block border border-grey-light w-full p-3 rounded mb-4"
       >
     </div>
 
+    <!-- 費用 -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mb-2"
@@ -86,6 +94,7 @@
       > 費用 </label>
 
       <select
+        v-model="price"
         class="block border border-grey-light w-full p-3 rounded mb-4"
         aria-label="Default select example"
       >
@@ -113,6 +122,7 @@
       </select>
     </div>
 
+    <!-- 詳細説明 -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mb-2"
@@ -123,11 +133,13 @@
       </label>
       <textarea
         id="message"
+        v-model="detail"
         rows="10"
         class="block border border-grey-light w-full p-3 rounded mb-4"
       />
     </div>
 
+    <!-- GoogleMap -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mb-2"
@@ -170,6 +182,7 @@
       style="width: 100%; height: 600px"
     />
 
+    <!-- ハッシュタグ -->
     <div class="my-4">
       <label
         class="block text-gray-700 text-sm font-bold mb-2"
@@ -221,26 +234,31 @@
         type="submit"
         class="pryimary_btn w-full md:w-1/3"
       >
-        保存する
+        更新
       </button>
     </div>
   </div>
 </template>
 
 <script>
+import post from "/json/post_edit.json";
 import { Loader } from "@googlemaps/js-api-loader";
 
 export default {
   data() {
     return {
-      url: "",
+      title: "サンプル",
+      url: "https://camo.qiitausercontent.com/58ca700865bb91a65bbf4c4868aafaac0ec61989/68747470733a2f2f71696974612d696d6167652d73746f72652e73332e61702d6e6f727468656173742d312e616d617a6f6e6177732e636f6d2f302f3238363039342f64643033333963312d663338642d396637322d623461652d3466323661633731303231352e706e67",
+      time_of_visiting: "2022-01-01",
+      price: "2",
+      detail: "ああああああああああああああああああああああああ",
       map: null,
       google: null,
       marker: null,
-      searchText: null,
+      searchText: "東京ディズニーランド",
       isMap: false,
-      hashTag: "",
-      hashTags: [],
+      hashTags: ["神景色","琵琶湖"],
+      prefecture: "岐阜"
     };
   },
 
@@ -307,22 +325,11 @@ export default {
         console.error(e);
       });
     },
-
     uploadFile() {
       const file = this.$refs.preview.files[0];
       this.url = URL.createObjectURL(file);
     },
-    addHashTag() {
-      const result =  /#/.test(this.hashTag);
-      console.log(result)
-      if (!result) {
-        const validHashTag = '#' + this.hashTag
-        this.hashTags.push(validHashTag);
-      } else {
-        this.hashTags.push(this.hashTag);
-      }
-    }
-  },
+  }
 };
 </script>
 

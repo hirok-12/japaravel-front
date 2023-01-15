@@ -1,7 +1,7 @@
 <template>
   <div class="my-6">
     <button
-      class="block border border-gray-300 p-3 rounded-md hover:bg-slate-50 transition duration-300 ml-auto"
+      class="block border border-gray-300 p-3 rounded-md hover:bg-slate-50 transition duration-300"
       @click="twitterShare"
     >
       <div class="flex items-center space-x-4 justify-center">

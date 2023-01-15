@@ -3,8 +3,9 @@
     <li>
       <input
         id="meal"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="meal"
         class="hidden peer"
         required=""
       >
@@ -22,8 +23,9 @@
     <li>
       <input
         id="nature"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="nature"
         class="hidden peer"
         required=""
       >
@@ -41,8 +43,9 @@
     <li>
       <input
         id="view"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="view"
         class="hidden peer"
         required=""
       >
@@ -60,8 +63,9 @@
     <li>
       <input
         id="hot-spa"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="hot-spa"
         class="hidden peer"
         required=""
       >
@@ -79,8 +83,9 @@
     <li>
       <input
         id="japanese-culture"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="japanese-culture"
         class="hidden peer"
         required=""
       >
@@ -98,8 +103,9 @@
     <li>
       <input
         id="festival"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="festival"
         class="hidden peer"
         required=""
       >
@@ -117,8 +123,9 @@
     <li>
       <input
         id="leisure"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="leisure"
         class="hidden peer"
         required=""
       >
@@ -136,8 +143,9 @@
     <li>
       <input
         id="sports"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="sports"
         class="hidden peer"
         required=""
       >
@@ -155,8 +163,9 @@
     <li>
       <input
         id="amusement-park"
+        v-model="checkValue"
         type="checkbox"
-        value=""
+        value="amusement-park"
         class="hidden peer"
         required=""
       >
@@ -174,8 +183,9 @@
     <li>
       <input
         id="entertainment"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="entertainment"
         class="hidden peer"
         required=""
       >
@@ -193,8 +203,9 @@
     <li>
       <input
         id="history"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="history"
         class="hidden peer"
         required=""
       >
@@ -212,8 +223,9 @@
     <li>
       <input
         id="seichi-place"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="seichi-place"
         class="hidden peer"
         required=""
       >
@@ -231,8 +243,9 @@
     <li>
       <input
         id="other"
+        v-model="checkValues"
         type="checkbox"
-        value=""
+        value="other"
         class="hidden peer"
         required=""
       >
@@ -251,4 +264,10 @@
 </template>
 
 <script setup>
-</script>/
+defineProps({
+  checkValues: {
+    type:  Array,
+    default: () => []
+  },
+});
+</script>
