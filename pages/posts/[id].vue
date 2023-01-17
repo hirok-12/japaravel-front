@@ -1,13 +1,12 @@
 <template>
   <div class="mx-auto w-10/12">
-    <div class="pic_container">
-      <img
-        src="@/assets/images/japaravel.png"
-        class="w-full rounded-lg object-cover lg:h-2/5"
-      >
-      <p class="overlay_prefecture">
-        {{ post.japanese_prefecture }}
-      </p>
+    <div>
+      <div>
+        <img
+          src="@/assets/images/japaravel.png"
+          class="w-full rounded-lg object-cover lg:h-2/5"
+        >
+      </div>
     </div>
 
     <div class="my-4 flex items-center">
@@ -19,13 +18,110 @@
           <span class="font-bold">{{ post.title }}</span> <span class="ml-2">{{ post.time_of_visiting }}</span>
         </p>
       </div>
+      <!-- .ml-auto は左側に最大限のマージンをつけます。 -->
       <div class="ml-auto">
-        <button
-          class="pryimary_btn p-2 rounded-full text-sm md:text-xl"
-          @click="showMap()"
-        >
-          地図表示
-        </button>
+        <!-- モバイルサイズ以上のボタン -->
+        <TwitterShareButton
+          text="nuxtアプリ"
+          hash-tag="#nuxt"
+          class="hidden md:block"
+        />
+        <!-- スマホサイズのボタン -->
+        <div class="md:hidden">
+          <button
+            class="rounded-full border-2 leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+          >
+            <svg
+              aria-hidden="true"
+              focusable="false"
+              data-prefix="fab"
+              data-icon="twitter"
+              class="w-3 h-full mx-auto"
+              role="img"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"
+            >
+              <path
+                fill="currentColor"
+                d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <p class="text-sm md:text-xl">
+      {{ post.detail }}
+    </p>
+
+    <div class="my-4 flex items-center">
+      <p
+        class="text-gray-700 text-xl md:text-2xl mx-2 mb-2"
+      >
+        <spanc class="line1" />
+        場所： 大阪
+      </p>
+      <div class="ml-auto">
+        <!-- モバイルサイズ以上のボタン -->
+        <div class="my-6">
+          <button
+            class="border border-gray-300 p-3 rounded-md hover:bg-slate-50 transition duration-300 hidden md:block"
+            @click="showMap()"
+          >
+            <div class="flex items-center space-x-4 justify-center">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                />
+              </svg>
+              <span
+                class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
+              >地図表示</span>
+            </div>
+          </button>
+          <!-- スマホサイズのボタン -->
+          <div class="md:hidden">
+            <button
+              class="rounded-full border-2 leading-normal uppercase hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0 transition duration-150 ease-in-out w-9 h-9 m-1"
+              @click="showMap()"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-3 h-full mx-auto"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -42,10 +138,6 @@
       class="mb-4"
       style="width: 100%; height: 600px; z-index: -1;"
     />
-
-    <p class="text-sm md:text-xl">
-      {{ post.detail }}
-    </p>
 
     <div class="my-4">
       <p
@@ -179,14 +271,11 @@ export default {
 
 .pic_container {
   position: relative;
-  z-index: -1;
+  z-index: -10;
 }
 
 .overlay_prefecture {
-  border-radius: 30px;
-  border: solid;
   position: absolute;
-  padding: 10px;
   margin:0;
   background-color: #fff;
   right: 5px;
