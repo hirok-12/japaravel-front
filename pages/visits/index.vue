@@ -34,7 +34,6 @@
 import data from "/json/spots.json";
 
 const omittedText = (text) => {
-  console.log(text.length)
   return text.length > 50 ? text.slice(0, 50) + "…" : text;
 }
 

@@ -37,6 +37,7 @@
       <button
         type="submit"
         class="pryimary_btn w-full md:w-1/3"
+        @click="search()"
       >
         検索する
       </button>
@@ -103,6 +104,10 @@ const genres = [
     name: 'その他',
   }
 ]
+
+const search = () => {
+  return navigateTo('search_results')
+}
 </script>
 
 <style></style>
