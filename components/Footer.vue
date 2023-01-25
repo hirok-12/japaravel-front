@@ -1,8 +1,9 @@
 <template>
   <div>
     <footer class="text-center">
-      <div class="container px-6 pt-6">
-        <div class="flex justify-center lg:mb-6 divide-y">
+      <!-- SNSはまだ対応中なのでリンクは割愛 -->
+      <!-- <div class="container px-6 pt-6"> -->
+        <!-- <div class="flex justify-center lg:mb-6 divide-y">
           <a
             href="#!"
             type="button"
@@ -47,7 +48,7 @@
             </svg>
           </a>
         </div>
-      </div>
+      </div> -->
 
       <div class="text-center p-4">
         © {{ 2022 }} Copyright:
