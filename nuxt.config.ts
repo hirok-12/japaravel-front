@@ -58,6 +58,7 @@ export default defineNuxtConfig({
       FIREBASE_API_ID: process.env.FIREBASE_API_ID || '',
       FIREBASE_MEASUREMENT_ID: process.env.FIREBASE_MEASUREMENT_ID || '',
       GOOGLE_MAP_API_KEY: process.env.GOOGLE_MAP_API_KEY || '',
+      DEVELOPER_TWITTER: process.env.DEVELOPER_TWITTER || '',
     },
   },
 })

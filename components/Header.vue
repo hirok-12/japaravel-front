@@ -177,6 +177,7 @@
 const { signOut } = useAuth();
 const showMenu = ref(false)
 const { token, checkAuthState } = useAuth();
+const runtimeConfig = useRuntimeConfig()
 
 const linkMypage = () => {
   showMenu.value = !showMenu.value
@@ -231,8 +232,8 @@ const loginHeaderItems = [
   },
   {
     id: 3,
-    url: "",
-    name: '問い合わせ',
+    url: runtimeConfig.DEVELOPER_TWITTER,
+    name: '開発者へ問い合わせ',
     event: ''
   }
 ]
@@ -258,8 +259,8 @@ const notLoginHeaderItems = [
   },
   {
     id: 4,
-    url: "",
-    name: '問い合わせ',
+    url: runtimeConfig.DEVELOPER_TWITTER,
+    name: '開発者へ問い合わせ',
     event: ''
   }
 ]
