@@ -163,7 +163,7 @@
     <li>
       <input
         id="amusement-park"
-        v-model="checkValue"
+        v-model="checkValues"
         type="checkbox"
         value="amusement-park"
         class="hidden peer"
