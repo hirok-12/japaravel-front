@@ -23,7 +23,7 @@
     <li>
       <input
         id="nature"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="nature"
         class="hidden peer"
@@ -43,7 +43,7 @@
     <li>
       <input
         id="view"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="view"
         class="hidden peer"
@@ -63,7 +63,7 @@
     <li>
       <input
         id="hot-spa"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="hot-spa"
         class="hidden peer"
@@ -83,7 +83,7 @@
     <li>
       <input
         id="japanese-culture"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="japanese-culture"
         class="hidden peer"
@@ -103,7 +103,7 @@
     <li>
       <input
         id="festival"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="festival"
         class="hidden peer"
@@ -123,7 +123,7 @@
     <li>
       <input
         id="leisure"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="leisure"
         class="hidden peer"
@@ -143,7 +143,7 @@
     <li>
       <input
         id="sports"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="sports"
         class="hidden peer"
@@ -163,7 +163,7 @@
     <li>
       <input
         id="amusement-park"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="amusement-park"
         class="hidden peer"
@@ -183,7 +183,7 @@
     <li>
       <input
         id="entertainment"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="entertainment"
         class="hidden peer"
@@ -203,7 +203,7 @@
     <li>
       <input
         id="history"
-        v-model="checkValues"
+        v-model="localCheckValues"
         type="checkbox"
         value="history"
         class="hidden peer"
@@ -263,11 +263,21 @@
   </ul>
 </template>
 
-<script setup>
-defineProps({
+<script>
+export default {
   checkValues: {
     type:  Array,
     default: () => []
   },
-});
+  data() {
+    return {
+      localCheckValues: this.checkValues
+    };
+  },
+  methods: {
+    uploadDescription() {
+      this.$emit('upload-description', this.localCheckValues);
+    }
+  }
+};
 </script>

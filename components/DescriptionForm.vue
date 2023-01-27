@@ -9,7 +9,7 @@
     </label>
     <textarea
       id="message"
-      v-model="description"
+      v-model="localDescription"
       rows="10"
       class="block border border-grey-light w-full p-3 rounded mb-4"
       @change="uploadDescription"
@@ -26,11 +26,12 @@ export default {
   },
   data() {
     return {
+      localDescription: this.description
     };
   },
   methods: {
     uploadDescription() {
-      this.$emit('upload-description', this.description);
+      this.$emit('upload-description', this.localDescription);
     }
   }
 };

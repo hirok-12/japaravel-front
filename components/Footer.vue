@@ -3,7 +3,7 @@
     <footer class="text-center">
       <!-- SNSはまだ対応中なのでリンクは割愛 -->
       <!-- <div class="container px-6 pt-6"> -->
-        <!-- <div class="flex justify-center lg:mb-6 divide-y">
+      <!-- <div class="flex justify-center lg:mb-6 divide-y">
           <a
             href="#!"
             type="button"
