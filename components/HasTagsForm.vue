@@ -1,10 +1,7 @@
 <template>
   <div>
     <div class="my-4">
-      <label
-        class="block text-gray-700 text-sm font-bold mb-2"
-        for="hashtag"
-      >
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="hashtag">
         ハッシュタグ
       </label>
     </div>
@@ -14,7 +11,7 @@
         v-model="hashTag"
         class="block border border-grey-light p-3 rounded mb-4 w-full"
         placeholder="例）#景色最高"
-      >
+      />
       <button
         class="pryimary_btn rounded-full ml-auto"
         @click="addHashTag(name)"
@@ -38,7 +35,7 @@
     <div class="bg-white px-6 text-black w-full">
       <div class="flex flex-wrap">
         <div
-          v-for="hashTag, index in hashTags"
+          v-for="(hashTag, index) in hashTags"
           class="secondary_btn rounded-full mr-2 flex"
           @click="deleteHashTag(index)"
         >
@@ -64,40 +61,39 @@
 </template>
 
 <script>
-export default {
-  props: {
-    hashTags: {
-      type:  Array,
-      default: [],
-      required: true
-    }
-  },
-  data() {
-    return {
-      hashTag: ""
-    };
-  },
-  methods: {
-    addHashTag() {
-      const result =  /#/.test(this.hashTag);
-      // hashタグマークの自動生成
-      if (!result) {
-        const validHashTag = '#' + this.hashTag
-        this.hashTags.push(validHashTag);
-      } else {
-        this.hashTags.push(this.hashTag);
+  export default {
+    props: {
+      hashTags: {
+        type: Array,
+        default: [],
+        required: true
       }
-      this.uploadHashTagForm()
     },
-    deleteHashTag(index){
-      this.hashTags.splice(index, 1);
-      this.uploadGoogleForm()
+    data() {
+      return {
+        hashTag: ''
+      }
     },
-    uploadHashTagForm() {
-      this.$emit('upload-hash-tag-form', this.hashTags);
+    methods: {
+      addHashTag() {
+        const result = /#/.test(this.hashTag)
+        // hashタグマークの自動生成
+        if (!result) {
+          const validHashTag = '#' + this.hashTag
+          this.hashTags.push(validHashTag)
+        } else {
+          this.hashTags.push(this.hashTag)
+        }
+        this.uploadHashTagForm()
+      },
+      deleteHashTag(index) {
+        this.hashTags.splice(index, 1)
+      },
+      uploadHashTagForm() {
+        this.$emit('upload-hash-tag-form', this.hashTags)
+      }
     }
   }
-};
 </script>
 
 <style></style>

@@ -11,32 +11,32 @@ import {
 
 export const useAuth = () => {
   const token = useState<string>('token', () => null)
-  const { successToaste, errorToaste } = useNotify();
+  const { successToaste, errorToaste } = useNotify()
 
   // メールアドレス新規登録関数
-  async function signUp(email:string, password:string){
-    return await new Promise((resolve, reject)=>{
+  async function signUp(email: string, password: string) {
+    return await new Promise((resolve, reject) => {
       // getAuth()でAuthを取得
       const auth = getAuth()
       // メールアドレスとパスワードでアカウントを作成する
       createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
-        userCredential.user
-        .getIdToken()
-          .then((idToken) => {
-            token.value = idToken
-            successToaste('新規登録完了🎉')
-            resolve('成功')
-            navigateTo('/')
-          })
-        .catch(reject)
-      })
-      .catch((error) => {
-        console.log(`エラー: ${error}`)
-        const errorMessage = error.message;
-        errorToaste('新規登録に失敗しました😭')
-        resolve(errorMessage)
-      })
+        .then((userCredential) => {
+          userCredential.user
+            .getIdToken()
+            .then((idToken) => {
+              token.value = idToken
+              successToaste('新規登録完了🎉')
+              resolve('成功')
+              navigateTo('/')
+            })
+            .catch(reject)
+        })
+        .catch((error) => {
+          console.log(`エラー: ${error}`)
+          const errorMessage = error.message
+          errorToaste('新規登録に失敗しました😭')
+          resolve(errorMessage)
+        })
     })
   }
 
@@ -49,17 +49,17 @@ export const useAuth = () => {
         .then((userCredential) => {
           userCredential.user
             .getIdToken()
-              .then((idToken) => {
-                token.value = idToken
-                successToaste('ログインしました🎉')
-                resolve()
-                navigateTo('/')
-              })
+            .then((idToken) => {
+              token.value = idToken
+              successToaste('ログインしました🎉')
+              resolve()
+              navigateTo('/')
+            })
             .catch(reject)
         })
         .catch((error) => {
           console.log(`エラー: ${error}`)
-          const errorMessage = error.message;
+          const errorMessage = error.message
           errorToaste('ログインに失敗しました😭')
           resolve(errorMessage)
         })
@@ -116,51 +116,49 @@ export const useAuth = () => {
 
   // google認証関数
   async function loginWithGoogle() {
-    const auth = getAuth();
-    const provider = new GoogleAuthProvider();
+    const auth = getAuth()
+    const provider = new GoogleAuthProvider()
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        const user = result.user;
+        const credential = GoogleAuthProvider.credentialFromResult(result)
+        const token = credential?.accessToken
+        const user = result.user
         successToaste('ログインしました🎉')
-        console.log({ credential, token, user });
+        console.log({ credential, token, user })
         navigateTo('/')
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        const email = error.email
+        const credential = GoogleAuthProvider.credentialFromError(error)
         errorToaste('ログイン失敗しました😭')
-        console.log({ errorCode, errorMessage, email, credential });
-    });
+        console.log({ errorCode, errorMessage, email, credential })
+      })
   }
 
   // twitter認証関数
   async function loginWithTwitter() {
-    const auth = getAuth();
-    const provider = new TwitterAuthProvider();
+    const auth = getAuth()
+    const provider = new TwitterAuthProvider()
     signInWithPopup(auth, provider)
       .then((result) => {
-        const credential = TwitterAuthProvider.credentialFromResult(result);
-        const token = credential?.accessToken;
-        const user = result.user;
+        const credential = TwitterAuthProvider.credentialFromResult(result)
+        const token = credential?.accessToken
+        const user = result.user
         successToaste('ログインしました🎉')
-        console.log({ credential, token, user });
+        console.log({ credential, token, user })
         navigateTo('/')
-    })
-    .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = TwitterAuthProvider.credentialFromError(error);
+      })
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        const email = error.email
+        const credential = TwitterAuthProvider.credentialFromError(error)
         errorToaste('ログイン失敗しました😭')
-        console.log({ errorCode, errorMessage, email, credential });
-    });
+        console.log({ errorCode, errorMessage, email, credential })
+      })
   }
-
-
 
   return {
     signUp,

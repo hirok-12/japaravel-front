@@ -52,10 +52,7 @@
 
       <div class="text-center p-4">
         © {{ 2022 }} Copyright:
-        <a
-          class="text-whitehite"
-          href="#"
-        >Japaravel</a>
+        <a class="text-whitehite" href="#">Japaravel</a>
       </div>
     </footer>
   </div>

@@ -11,37 +11,22 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <path
-      stroke="none"
-      d="M0 0h24v24H0z"
-      fill="none"
-    />
-    <circle
-      cx="12"
-      cy="12"
-      r="9"
-    />
-    <line
-      x1="9"
-      y1="9"
-      x2="9.01"
-      y2="9"
-    />
-    <line
-      x1="15"
-      y1="9"
-      x2="15.01"
-      y2="9"
-    />
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+    <circle cx="12" cy="12" r="9" />
+    <line x1="9" y1="9" x2="9.01" y2="9" />
+    <line x1="15" y1="9" x2="15.01" y2="9" />
     <path d="M8 13a4 4 0 1 0 8 0m0 0h-8" />
   </svg>
 </template>
 
 <script lang="ts" setup>
-// defineProps<{ size: string }>()
+  // defineProps<{ size: string }>()
 
-withDefaults(defineProps<{
-  size?: string,
-}>(), { size: '24px' });
-</script>/
-
+  withDefaults(
+    defineProps<{
+      size?: string
+    }>(),
+    { size: '24px' }
+  )
+</script>
+/

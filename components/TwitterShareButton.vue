@@ -17,39 +17,40 @@
         </svg>
         <span
           class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-        >Twitterシェア</span>
+          >Twitterシェア</span
+        >
       </div>
     </button>
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    text: String,
-    hashTag: String
-  },
-  methods: {
-    twitterShare() {
-      window.open(this.twitterURL())
+  export default {
+    props: {
+      text: String,
+      hashTag: String
     },
-    url() {
-      // 本番公開後にURL変更
-      // return `https://ja.nuxtjs.org${this.$route.path}`;
-      return `http://localhost:3000${this.$route.path}`;
-    },
-    textAndHashTag() {
-      // encodeURIComponent は引数に指定した URI の中で使われる文字列の中の特別な文字をエンコードする
-      // 例）let uri = 'https://www.example.com/ブログ/park.html'
-      // console.log(encodeURI(uri));
-      // >> https://www.example.com/%E3%83%96%E3%83%AD%E3%82%B0/park.html
-      return encodeURIComponent(`${this.text} ${this.hashTag}`);
-    },
-    twitterURL() {
-      // twitterにシェアする場合、https://twitter.com/intent/tweetでシェアするページに移動する
-      // 投稿文とハッシュタグをつけてシェアさせたいので、propsには、text（投稿文）とhashTag（ハッシュタグ）を記述する
-      return `https://twitter.com/intent/tweet?url=${this.url()}&text=${this.textAndHashTag()}`;
-    },
-  },
-}
+    methods: {
+      twitterShare() {
+        window.open(this.twitterURL())
+      },
+      url() {
+        // 本番公開後にURL変更
+        // return `https://ja.nuxtjs.org${this.$route.path}`;
+        return `http://localhost:3000${this.$route.path}`
+      },
+      textAndHashTag() {
+        // encodeURIComponent は引数に指定した URI の中で使われる文字列の中の特別な文字をエンコードする
+        // 例）let uri = 'https://www.example.com/ブログ/park.html'
+        // console.log(encodeURI(uri));
+        // >> https://www.example.com/%E3%83%96%E3%83%AD%E3%82%B0/park.html
+        return encodeURIComponent(`${this.text} ${this.hashTag}`)
+      },
+      twitterURL() {
+        // twitterにシェアする場合、https://twitter.com/intent/tweetでシェアするページに移動する
+        // 投稿文とハッシュタグをつけてシェアさせたいので、propsには、text（投稿文）とhashTag（ハッシュタグ）を記述する
+        return `https://twitter.com/intent/tweet?url=${this.url()}&text=${this.textAndHashTag()}`
+      }
+    }
+  }
 </script>

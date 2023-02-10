@@ -15,12 +15,9 @@
         class="block border border-grey-light w-full p-3 rounded mb-4"
         name="email"
         placeholder="田中太郎"
-      >
+      />
 
-      <label
-        class="block text-gray-700 text-sm font-bold mb-2"
-        for="birthday"
-      >
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
         生年月日
       </label>
 
@@ -28,7 +25,7 @@
         id="birthday"
         type="date"
         class="block border border-grey-light w-full p-3 rounded mb-4"
-      >
+      />
 
       <label
         class="block text-gray-700 text-sm font-bold mb-2"
@@ -38,13 +35,10 @@
       </label>
       <input
         type="file"
-        class="block w-full text-sm text-gray-500 file:py-2 file:px-6 file:rounded file:border-1 file:border-gray-400  mb-4"
-      >
+        class="block w-full text-sm text-gray-500 file:py-2 file:px-6 file:rounded file:border-1 file:border-gray-400 mb-4"
+      />
 
-      <label
-        class="block text-gray-700 text-sm font-bold mb-2"
-        for="birthday"
-      >
+      <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
         自己紹介
       </label>
       <textarea
@@ -62,7 +56,9 @@
     <div class="flex justify-center">
       <button
         type="submit"
-        :class="validInput ? 'bg-indigo-500 hover:bg-indigo-700' : 'bg-gray-500'"
+        :class="
+          validInput ? 'bg-indigo-500 hover:bg-indigo-700' : 'bg-gray-500'
+        "
         class="border border-grey-light p-3 rounded mb-4 text-white"
         :disabled="!validInput"
         @click="login"
@@ -74,11 +70,7 @@
 </template>
 
 <script>
-export default {
-
-}
+  export default {}
 </script>
 
-<style>
-
-</style>
+<style></style>

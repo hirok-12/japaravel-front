@@ -4,9 +4,7 @@
       class="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2"
     >
       <div class="bg-white px-6 py-8 text-black w-full">
-        <h1 class="mb-8 text-3xl text-center">
-          ログイン😀
-        </h1>
+        <h1 class="mb-8 text-3xl text-center">ログイン😀</h1>
 
         <input
           v-model="email"
@@ -14,7 +12,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="email"
           placeholder="Email"
-        >
+        />
 
         <input
           v-model="password"
@@ -22,7 +20,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="password"
           placeholder="Password"
-        >
+        />
 
         <button
           type="submit"
@@ -52,7 +50,8 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-              >Twitterアカウントでログイン</span>
+                >Twitterアカウントでログイン</span
+              >
             </div>
           </button>
         </div>
@@ -75,7 +74,8 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-              >Googleアカウントでログイン</span>
+                >Googleアカウントでログイン</span
+              >
             </div>
           </button>
         </div>
@@ -85,29 +85,29 @@
 </template>
 
 <script setup>
-const { signIn, loginWithGoogle, loginWithTwitter } = useAuth();
-const email = ref('')
-const password = ref('')
+  const { signIn, loginWithGoogle, loginWithTwitter } = useAuth()
+  const email = ref('')
+  const password = ref('')
 
-const login = () => {
-  signIn(email.value, password.value)
-}
-
-const signInWithGoogle = () => {
-  loginWithGoogle()
-}
-
-const signInWithTwitter = () => {
-  loginWithTwitter()
-}
-
-const validInput = computed(() => {
-  if (email.value && password.value) {
-    return true;
-  } else {
-    return false;
+  const login = () => {
+    signIn(email.value, password.value)
   }
-})
+
+  const signInWithGoogle = () => {
+    loginWithGoogle()
+  }
+
+  const signInWithTwitter = () => {
+    loginWithTwitter()
+  }
+
+  const validInput = computed(() => {
+    if (email.value && password.value) {
+      return true
+    } else {
+      return false
+    }
+  })
 </script>
 
 <style></style>

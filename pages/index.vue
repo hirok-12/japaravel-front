@@ -5,14 +5,12 @@
         src="@/assets/images/japaravel.png"
         :class="pcView ? 'pc-main' : ''"
         class="w-full rounded-lg object-cover lg:h-2/5"
-      >
+      />
     </div>
     <section class="text-gray-600 body-font">
       <div>
         <div class="mt-3">
-          <h1
-            class="sm:text-3xl text-2xl font-medium title-font text-gray-900"
-          >
+          <h1 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">
             探す🔍
           </h1>
           <div>
@@ -27,7 +25,7 @@
               <img
                 src="@/assets/images/japanese_food.jpeg"
                 class="rounded-lg h-32 md:h-80 lg:h-96"
-              >
+              />
             </NuxtLink>
             <figcaption class="absolute bottom-6 px-2 text-lg text-white">
               <p>食べる</p>
@@ -40,7 +38,7 @@
               <img
                 src="@/assets/images/culture.jpeg"
                 class="rounded-lg h-32 md:h-80 lg:h-96"
-              >
+              />
             </NuxtLink>
             <figcaption class="absolute bottom-6 px-2 text-lg text-white">
               <p>自然</p>
@@ -53,7 +51,7 @@
               <img
                 src="@/assets/images/nature.jpeg"
                 class="rounded-lg h-32 md:h-80 lg:h-96"
-              >
+              />
             </NuxtLink>
             <figcaption class="absolute bottom-6 px-2 text-lg text-white">
               <p>日本文化</p>
@@ -66,23 +64,22 @@
 </template>
 
 <script setup>
-const pcView = ref(true)
-const windowWidth = ref(0)
+  const pcView = ref(true)
+  const windowWidth = ref(0)
 
-const calculateWindowWidth = () => {
-  windowWidth.value = window.innerWidth
-  return (pcView.value = windowWidth.value > 768)
-}
+  const calculateWindowWidth = () => {
+    windowWidth.value = window.innerWidth
+    return (pcView.value = windowWidth.value > 768)
+  }
 
-// resizeでウィンドウサイズ変更を検知
-onMounted(() => {
-  window.addEventListener('resize', calculateWindowWidth)
-})
-
+  // resizeでウィンドウサイズ変更を検知
+  onMounted(() => {
+    window.addEventListener('resize', calculateWindowWidth)
+  })
 </script>
 
 <style scoped>
-.pc-main {
-  height: 800px;
-}
+  .pc-main {
+    height: 800px;
+  }
 </style>

@@ -14,7 +14,7 @@
     <h2 class="text-center text-2xl font-extrabold dark:text-white">
       第1条（適用）
     </h2>
-    <br>
+    <br />
     <p
       class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
     >
@@ -24,7 +24,7 @@
     <h2 class="text-center text-2xl font-extrabold dark:text-white">
       第1条（適用）
     </h2>
-    <br>
+    <br />
     <p
       class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
     >
@@ -34,7 +34,7 @@
     <h2 class="text-center text-2xl font-extrabold dark:text-white">
       第1条（適用）
     </h2>
-    <br>
+    <br />
     <p
       class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
     >
@@ -44,7 +44,7 @@
     <h2 class="text-center text-2xl font-extrabold dark:text-white">
       第1条（適用）
     </h2>
-    <br>
+    <br />
     <p
       class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
     >
@@ -54,7 +54,7 @@
     <h2 class="text-center text-2xl font-extrabold dark:text-white">
       第1条（適用）
     </h2>
-    <br>
+    <br />
     <p
       class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
     >
@@ -64,7 +64,7 @@
     <h2 class="text-center text-2xl font-extrabold dark:text-white">
       第1条（適用）
     </h2>
-    <br>
+    <br />
     <p
       class="mb-6 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 xl:px-48 dark:text-gray-400"
     >
@@ -73,8 +73,6 @@
   </div>
 </template>
 
-<script setup>
-
-</script>
+<script setup></script>
 
 <style></style>

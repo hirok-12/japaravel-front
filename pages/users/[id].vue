@@ -1,18 +1,16 @@
 <template>
   <div class="mx-auto lg:flex lg:flex-row w-10/12">
     <div class="lg:flex-none flex justify-center">
-      <div class="lg:flex-none ">
+      <div class="lg:flex-none">
         <img
           src="https://i.imgur.com/z4YSzDD.jpg"
           class="rounded-full hover:ring-4"
           width="150"
-        >
+        />
       </div>
     </div>
     <div class="lg:grow lg:mt-0 lg:mx-10 mt-10">
-      <div class="text-lg">
-        名前:ひろき
-      </div>
+      <div class="text-lg">名前:ひろき</div>
       <div>誕生日:1990-12-05</div>
       <div class="my-10">
         私は旅が好きです私は旅が好きです私は旅が好きです。私は旅が好きです私は旅が好きです私は旅が好きです。
@@ -33,11 +31,9 @@
 </template>
 
 <script setup>
-const toEdit = () => {
-  return navigateTo('/users/' + 4  + '/edit')
-}
+  const toEdit = () => {
+    return navigateTo('/users/' + 4 + '/edit')
+  }
 </script>
 
-<style>
-
-</style>
+<style></style>

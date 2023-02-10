@@ -11,11 +11,7 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   >
-    <path
-      stroke="none"
-      d="M0 0h24v24H0z"
-      fill="none"
-    />
+    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
     <path d="M9 19l3 2v-18" />
     <path d="M4 10l8 -2" />
     <path d="M4 18l8 -10" />
@@ -24,10 +20,13 @@
 </template>
 
 <script lang="ts" setup>
-// defineProps<{ size: string }>()
+  // defineProps<{ size: string }>()
 
-withDefaults(defineProps<{
-  size?: string,
-}>(), { size: '24px' });
-</script>/
-
+  withDefaults(
+    defineProps<{
+      size?: string
+    }>(),
+    { size: '24px' }
+  )
+</script>
+/

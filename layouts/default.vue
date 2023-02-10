@@ -2,11 +2,10 @@
   <div class="w-11/12 mx-auto">
     <Header />
     <slot />
-    <Footer />
+    <MainFooter />
   </div>
 </template>
 
-<script>
-</script>
+<script></script>
 
 <style scoped></style>

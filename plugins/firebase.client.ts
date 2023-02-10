@@ -10,7 +10,7 @@ export default defineNuxtPlugin(() => {
     storage_bucket: config.FIREBASE_STORAGE_BUCKET,
     messaging_sender_id: config.FIREBASE_MESSAGING_SENDER_ID,
     api_id: config.FIREBASE_API_ID,
-    measurement_id: config.FIREBASE_MEASUREMENT_ID,
+    measurement_id: config.FIREBASE_MEASUREMENT_ID
   }
   initializeApp(firebaseConfig)
 })

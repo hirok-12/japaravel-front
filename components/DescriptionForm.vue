@@ -1,9 +1,6 @@
 <template>
   <div class="my-4">
-    <label
-      class="block text-gray-700 text-sm font-bold mb-2"
-      for="birthday"
-    >
+    <label class="block text-gray-700 text-sm font-bold mb-2" for="birthday">
       詳細説明
       <span class="secondary_btn text-sm py-1 px-2 rounded-full">必須</span>
     </label>
@@ -18,23 +15,23 @@
 </template>
 
 <script>
-export default {
-  props: {
-    description: {
-      type: String,
-    }
-  },
-  data() {
-    return {
-      localDescription: this.description
-    };
-  },
-  methods: {
-    uploadDescription() {
-      this.$emit('upload-description', this.localDescription);
+  export default {
+    props: {
+      description: {
+        type: String
+      }
+    },
+    data() {
+      return {
+        localDescription: this.description
+      }
+    },
+    methods: {
+      uploadDescription() {
+        this.$emit('upload-description', this.localDescription)
+      }
     }
   }
-};
 </script>
 
 <style></style>

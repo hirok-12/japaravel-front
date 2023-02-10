@@ -8,7 +8,7 @@
         value="meal"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="meal"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -28,7 +28,7 @@
         value="nature"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="nature"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -36,7 +36,9 @@
         <div class="block">
           <IconLeaf />
           <div class="w-full text-lg font-semibold">自然</div>
-          <div class="w-full text-sm">登山やラフティングなどのアクティビティ情報</div>
+          <div class="w-full text-sm">
+            登山やラフティングなどのアクティビティ情報
+          </div>
         </div>
       </label>
     </li>
@@ -48,7 +50,7 @@
         value="view"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="view"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -68,7 +70,7 @@
         value="hot-spa"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="hot-spa"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -88,7 +90,7 @@
         value="japanese-culture"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="japanese-culture"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -108,7 +110,7 @@
         value="festival"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="festival"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -128,7 +130,7 @@
         value="leisure"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="leisure"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -148,7 +150,7 @@
         value="sports"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="sports"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -168,7 +170,7 @@
         value="amusement-park"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="amusement-park"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -176,7 +178,9 @@
         <div class="block">
           <IconBuildingCarousel />
           <div class="w-full text-lg font-semibold">テーマパーク</div>
-          <div class="w-full text-sm">USJやディズニーなどのテーマパーク情報</div>
+          <div class="w-full text-sm">
+            USJやディズニーなどのテーマパーク情報
+          </div>
         </div>
       </label>
     </li>
@@ -188,7 +192,7 @@
         value="entertainment"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="entertainment"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -208,7 +212,7 @@
         value="history"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="history"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -228,7 +232,7 @@
         value="seichi-place"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="seichi-place"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -248,7 +252,7 @@
         value="other"
         class="hidden peer"
         required=""
-      >
+      />
       <label
         for="other"
         class="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border-2 border-gray-200 cursor-pointer dark:hover:text-gray-300 dark:border-gray-700 peer-checked:border-blue-600 hover:text-gray-600 dark:peer-checked:text-gray-300 peer-checked:text-gray-600 hover:bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:hover:bg-gray-700"
@@ -264,20 +268,20 @@
 </template>
 
 <script>
-export default {
-  checkValues: {
-    type:  Array,
-    default: () => []
-  },
-  data() {
-    return {
-      localCheckValues: this.checkValues
-    };
-  },
-  methods: {
-    uploadDescription() {
-      this.$emit('upload-description', this.localCheckValues);
+  export default {
+    checkValues: {
+      type: Array,
+      default: () => []
+    },
+    data() {
+      return {
+        localCheckValues: this.checkValues
+      }
+    },
+    methods: {
+      uploadDescription() {
+        this.$emit('upload-description', this.localCheckValues)
+      }
     }
   }
-};
 </script>

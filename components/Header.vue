@@ -1,10 +1,7 @@
 <template>
   <div class="sticky top-0 z-100 bg-white">
     <nav class="flex items-center p-3 flex-wrap">
-      <NuxtLink
-        to="/"
-        class="p-2 mr-4 inline-flex items-center"
-      >
+      <NuxtLink to="/" class="p-2 mr-4 inline-flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -100,30 +97,21 @@
           </svg>
         </button>
       </div>
-      <div
-        :class="showMenu ? '' : 'hidden'"
-        class="w-full"
-      >
+      <div :class="showMenu ? '' : 'hidden'" class="w-full">
         <!-- ログイン中のヘッダー -->
-        <div
-          v-if="token"
-          class="flex flex-col"
-        >
+        <div v-if="token" class="flex flex-col">
           <div
             v-if="showMenu == true"
             class="cursor-pointer"
             @click="linkMypage"
           >
-            <div
-              :class="showMenu ? 'my-3' : ''"
-              class="flex justify-center"
-            >
+            <div :class="showMenu ? 'my-3' : ''" class="flex justify-center">
               <div>
                 <img
                   src="https://i.imgur.com/z4YSzDD.jpg"
                   class="rounded-full hover:ring-4"
                   width="70"
-                >
+                />
               </div>
             </div>
             <div class="flex justify-center underline hover:text-blue-600">
@@ -149,15 +137,12 @@
                 src="https://i.imgur.com/z4YSzDD.jpg"
                 class="rounded-full hover:ring-4"
                 width="50"
-              >
+              />
             </div>
           </div>
         </div>
         <!-- ログインアウト中のヘッダー -->
-        <div
-          v-else
-          class="flex flex-col"
-        >
+        <div v-else class="flex flex-col">
           <nuxt-link
             v-for="item in notLoginHeaderItems"
             :key="item.id"
@@ -174,98 +159,98 @@
 </template>
 
 <script setup>
-const { signOut } = useAuth();
-const showMenu = ref(false)
-const { token, checkAuthState } = useAuth();
-const runtimeConfig = useRuntimeConfig()
+  const { signOut } = useAuth()
+  const showMenu = ref(false)
+  const { token, checkAuthState } = useAuth()
+  const runtimeConfig = useRuntimeConfig()
 
-const linkMypage = () => {
-  showMenu.value = !showMenu.value
-  return navigateTo('/users/' + 4)
-}
-
-const select = (itemname) => {
-  switch (itemname) {
-    case 'logOut':
-      signOut()
-      showMenu.value = !showMenu.value
-      break;
-    default:
-      showMenu.value = !showMenu.value
-      break;
+  const linkMypage = () => {
+    showMenu.value = !showMenu.value
+    return navigateTo('/users/' + 4)
   }
-}
 
-const loginRouting = (item) => {
-  switch (item.name) {
-    case 'プロフィール':
-      return { name:'users-id', params:{ id: token } }
-    default:
-      return item.url
+  const select = (itemname) => {
+    switch (itemname) {
+      case 'logOut':
+        signOut()
+        showMenu.value = !showMenu.value
+        break
+      default:
+        showMenu.value = !showMenu.value
+        break
+    }
   }
-}
 
-const toggleNav = () => (showMenu.value = !showMenu.value)
-
-const toVisit = () => {
-  showMenu.value = false
-  return navigateTo('/users/' + 4  + '/visits')
-}
-
-const toSearch = () => {
-  showMenu.value = false
-  return navigateTo('/search')
-}
-
-const loginHeaderItems = [
-  {
-    id: 1,
-    url: "/signup",
-    name: 'ログアウト',
-    event: 'logOut'
-  },
-  {
-    id: 2,
-    url: "/terms",
-    name: '利用規約',
-    event: ''
-  },
-  {
-    id: 3,
-    url: runtimeConfig.DEVELOPER_TWITTER,
-    name: '開発者へ問い合わせ',
-    event: ''
+  const loginRouting = (item) => {
+    switch (item.name) {
+      case 'プロフィール':
+        return { name: 'users-id', params: { id: token } }
+      default:
+        return item.url
+    }
   }
-]
 
-const notLoginHeaderItems = [
-  {
-    id: 1,
-    url: "/signup",
-    name: '無料登録',
-    event: ''
-  },
-  {
-    id: 2,
-    url: "/login",
-    name: 'ログイン',
-    event: ''
-  },
-  {
-    id: 3,
-    url: "/terms",
-    name: '利用規約',
-    event: ''
-  },
-  {
-    id: 4,
-    url: runtimeConfig.DEVELOPER_TWITTER,
-    name: '開発者へ問い合わせ',
-    event: ''
+  const toggleNav = () => (showMenu.value = !showMenu.value)
+
+  const toVisit = () => {
+    showMenu.value = false
+    return navigateTo('/users/' + 4 + '/visits')
   }
-]
 
-onMounted(() => {
-  checkAuthState()
-})
+  const toSearch = () => {
+    showMenu.value = false
+    return navigateTo('/search')
+  }
+
+  const loginHeaderItems = [
+    {
+      id: 1,
+      url: '/signup',
+      name: 'ログアウト',
+      event: 'logOut'
+    },
+    {
+      id: 2,
+      url: '/terms',
+      name: '利用規約',
+      event: ''
+    },
+    {
+      id: 3,
+      url: runtimeConfig.DEVELOPER_TWITTER,
+      name: '開発者へ問い合わせ',
+      event: ''
+    }
+  ]
+
+  const notLoginHeaderItems = [
+    {
+      id: 1,
+      url: '/signup',
+      name: '無料登録',
+      event: ''
+    },
+    {
+      id: 2,
+      url: '/login',
+      name: 'ログイン',
+      event: ''
+    },
+    {
+      id: 3,
+      url: '/terms',
+      name: '利用規約',
+      event: ''
+    },
+    {
+      id: 4,
+      url: runtimeConfig.DEVELOPER_TWITTER,
+      name: '開発者へ問い合わせ',
+      event: ''
+    }
+  ]
+
+  onMounted(() => {
+    checkAuthState()
+  })
 </script>

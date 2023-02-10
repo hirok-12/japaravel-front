@@ -4,20 +4,24 @@
       class="container max-w-md mx-auto flex-1 flex flex-col items-center justify-center px-2"
     >
       <div class="bg-white px-6 py-8 text-black w-full">
-        <h1 class="mb-8 text-3xl text-center">
-          新規登録 🎉
-        </h1>
+        <h1 class="mb-8 text-3xl text-center">新規登録 🎉</h1>
 
         <div v-if="errors">
           <div
             class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-10"
             role="alert"
           >
-            <strong class="font-bold">入力項目エラー</strong><br>
+            <strong class="font-bold">入力項目エラー</strong><br />
             <ul>
-              <li><span class="block sm:inline">{{ emailError }}</span></li>
-              <li><span class="block sm:inline">{{ passwordError }}</span></li>
-              <li><span class="block sm:inline">{{ passwordConfirmError }}</span></li>
+              <li>
+                <span class="block sm:inline">{{ emailError }}</span>
+              </li>
+              <li>
+                <span class="block sm:inline">{{ passwordError }}</span>
+              </li>
+              <li>
+                <span class="block sm:inline">{{ passwordConfirmError }}</span>
+              </li>
             </ul>
           </div>
         </div>
@@ -27,7 +31,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="email"
           placeholder="Email"
-        >
+        />
 
         <input
           v-model="password"
@@ -35,7 +39,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="password"
           placeholder="Password"
-        >
+        />
 
         <input
           v-model="passwordConfirm"
@@ -43,7 +47,7 @@
           class="block border border-grey-light w-full p-3 rounded mb-4"
           name="passwordConfirm"
           placeholder="Confirm Password"
-        >
+        />
 
         <button
           type="submit"
@@ -84,7 +88,8 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-              >Twitterアカウントで登録</span>
+                >Twitterアカウントで登録</span
+              >
             </div>
           </button>
         </div>
@@ -107,7 +112,8 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-              >Googleアカウントで登録</span>
+                >Googleアカウントで登録</span
+              >
             </div>
           </button>
         </div>
@@ -117,73 +123,84 @@
 </template>
 
 <script>
-import { useField } from 'vee-validate';
+  import { useField } from 'vee-validate'
 
-export default {
-  setup() {
-    const { signUp, loginWithGoogle, loginWithTwitter } = useAuth();
+  export default {
+    setup() {
+      const { signUp, loginWithGoogle, loginWithTwitter } = useAuth()
 
-    const register = () => {
-      signUp(email.value, password.value)
-    }
-
-    const signInWithGoogle = () => {
-      loginWithGoogle()
-    }
-
-    const signInWithTwitter = () => {
-      loginWithTwitter()
-    }
-
-    const validInput = computed(() => {
-      if ((email.value && password.value && passwordConfirm.value) && (!emailError.value && !passwordError.value && !passwordConfirmError.value)) {
-        return true;
-      } else {
-        return false;
+      const register = () => {
+        signUp(email.value, password.value)
       }
-    })
 
-    const errors = computed(() => {
-      if (emailError.value || passwordError.value || passwordConfirmError.value) {
-        return true;
-      } else {
-        return false;
+      const signInWithGoogle = () => {
+        loginWithGoogle()
       }
-    })
 
-    const { value: email, errorMessage: emailError } = useField(
-      "email",
-      "required|email",
-    );
-
-    const { value: password, errorMessage: passwordError } = useField(
-      "password",
-      "required|min:5",
-    );
-
-    const { value: passwordConfirm, errorMessage: passwordConfirmError } = useField('passwordConfirm', (passwordConfirm) => {
-      if ( passwordConfirm === password.value) {
-        return true;
+      const signInWithTwitter = () => {
+        loginWithTwitter()
       }
-      return 'パスワードと一致してません';
-    });
 
+      const validInput = computed(() => {
+        if (
+          email.value &&
+          password.value &&
+          passwordConfirm.value &&
+          !emailError.value &&
+          !passwordError.value &&
+          !passwordConfirmError.value
+        ) {
+          return true
+        } else {
+          return false
+        }
+      })
 
-    return {
-      register,
-      signInWithGoogle,
-      signInWithTwitter,
-      email,
-      emailError,
-      password,
-      passwordError,
-      passwordConfirm,
-      passwordConfirmError,
-      validInput,
-      errors
+      const errors = computed(() => {
+        if (
+          emailError.value ||
+          passwordError.value ||
+          passwordConfirmError.value
+        ) {
+          return true
+        } else {
+          return false
+        }
+      })
+
+      const { value: email, errorMessage: emailError } = useField(
+        'email',
+        'required|email'
+      )
+
+      const { value: password, errorMessage: passwordError } = useField(
+        'password',
+        'required|min:5'
+      )
+
+      const { value: passwordConfirm, errorMessage: passwordConfirmError } =
+        useField('passwordConfirm', (passwordConfirm) => {
+          if (passwordConfirm === password.value) {
+            return true
+          }
+          return 'パスワードと一致してません'
+        })
+
+      return {
+        register,
+        signInWithGoogle,
+        signInWithTwitter,
+        email,
+        emailError,
+        password,
+        passwordError,
+        passwordConfirm,
+        passwordConfirmError,
+        validInput,
+        errors
+      }
     }
-  },
-}
+  }
 </script>
 
 <style></style>

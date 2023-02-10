@@ -12,17 +12,16 @@
         <img
           src="@/assets/images/japaravel.png"
           class="w-full rounded-lg object-cover lg:h-2/5"
-        >
+        />
       </div>
     </div>
 
     <div class="my-4 flex items-center">
       <div>
-        <p
-          class="text-gray-700 text-xl md:text-3xl mx-2 mb-2"
-        >
+        <p class="text-gray-700 text-xl md:text-3xl mx-2 mb-2">
           <spanc class="line1" />
-          <span class="font-bold">{{ post.title }}</span> <span class="ml-2">{{ post.time_of_visiting }}</span>
+          <span class="font-bold">{{ post.title }}</span>
+          <span class="ml-2">{{ post.time_of_visiting }}</span>
         </p>
       </div>
       <!-- .ml-auto は左側に最大限のマージンをつけます。 -->
@@ -63,9 +62,7 @@
     </p>
 
     <div class="my-4 flex items-center">
-      <p
-        class="text-gray-700 text-xl md:text-2xl mx-2 mb-2"
-      >
+      <p class="text-gray-700 text-xl md:text-2xl mx-2 mb-2">
         <spanc class="line1" />
         場所： 大阪
       </p>
@@ -98,7 +95,8 @@
               </svg>
               <span
                 class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-              >地図表示</span>
+                >地図表示</span
+              >
             </div>
           </button>
           <!-- スマホサイズのボタン -->
@@ -132,10 +130,7 @@
       </div>
     </div>
 
-    <p
-      v-show="isMap == true"
-      class="text-gray-700 text-xl mx-2 mb-2"
-    >
+    <p v-show="isMap == true" class="text-gray-700 text-xl mx-2 mb-2">
       {{ post.address }}
     </p>
 
@@ -143,13 +138,11 @@
       v-show="isMap == true"
       id="map"
       class="mb-4"
-      style="width: 100%; height: 600px; z-index: -1;"
+      style="width: 100%; height: 600px; z-index: -1"
     />
 
     <div class="my-4">
-      <p
-        class="text-gray-700 text-xl md:text-2xl mx-2 mb-2"
-      >
+      <p class="text-gray-700 text-xl md:text-2xl mx-2 mb-2">
         <spanc class="line1" />
         予算費用 ¥<span class="font-bold">{{ post.price }}円</span>
       </p>
@@ -189,7 +182,8 @@
             </svg>
             <span
               class="block w-max font-semibold tracking-wide text-gray-700 text-sm sm:text-base"
-            >編集</span>
+              >編集</span
+            >
           </div>
         </NuxtLink>
       </div>
@@ -217,7 +211,8 @@
             </svg>
             <span
               class="block w-max font-semibold tracking-wide text-white text-sm sm:text-base"
-            >削除</span>
+              >削除</span
+            >
           </div>
         </button>
       </div>
@@ -226,105 +221,106 @@
 </template>
 
 <script>
-import post from "/json/post.json";
-import { Loader } from "@googlemaps/js-api-loader";
+  import { Loader } from '@googlemaps/js-api-loader'
+  // eslint-disable-next-line import/no-absolute-path
+  import post from '/json/post.json'
 
-export default {
-  data() {
-    return {
-      post: {},
-      google: null,
-      marker: null,
-      isMap: false,
-      showConfirmModal: false,
-    };
-  },
+  export default {
+    data() {
+      return {
+        post: {},
+        google: null,
+        marker: null,
+        isMap: false,
+        showConfirmModal: false
+      }
+    },
 
-  async mounted() {
-    this.post = post
-  },
+    async mounted() {
+      this.post = post
+    },
 
-  methods: {
-    showMap() {
-      const runtimeConfig = useRuntimeConfig()
-      new Loader({
-      apiKey: runtimeConfig.GOOGLE_MAP_API_KEY,
-      // 動作が安定したバージョン。この段階のバージョンは、バグ修正で変更されることはある。
-      version: "Release",
-      // 追加のライブラリを読み込む場合はライブラリ（複数可）の名前を指定
-      // 参照：https://developers.google.com/maps/documentation/javascript/libraries?hl=ja
-      libraries: ["places", "geometry"],
-      language: "ja",
-    })
-      .load()
-      .then((google) => {
-        this.google = google;
-        // 地図の初期化
-        this.map = new google.maps.Map(document.getElementById("map"), {
-          // コントロールの概要設定
-          zoom: 17, // 初期表示設定
-          center: { lat: 35.692195, lng: 139.759854 }, // マルティスープ本社
-          fullscreenControl: false, // 全画面モードで地図を開くコントロールを無効
-          mapTypeControl: false, // 地図タイプ（地図や航空写真など）を切り替える地図タイプのコントロールを無効
-          streetViewControl: true, // ユーザーがストリートビュー パノラマの有効
-          streetViewControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM,
-          },
-          zoomControl: true, // ズーム コントロールの有効
-          zoomControlOptions: {
-            position: google.maps.ControlPosition.LEFT_BOTTOM,
-          },
-          scaleControl: true, // 簡単な地図の縮尺調整機能を表示するスケール コントロールを有効
-        });
-        const geocoder = new this.google.maps.Geocoder();
-        const vm = this;
+    methods: {
+      showMap() {
+        const runtimeConfig = useRuntimeConfig()
+        new Loader({
+          apiKey: runtimeConfig.GOOGLE_MAP_API_KEY,
+          // 動作が安定したバージョン。この段階のバージョンは、バグ修正で変更されることはある。
+          version: 'Release',
+          // 追加のライブラリを読み込む場合はライブラリ（複数可）の名前を指定
+          // 参照：https://developers.google.com/maps/documentation/javascript/libraries?hl=ja
+          libraries: ['places', 'geometry'],
+          language: 'ja'
+        })
+          .load()
+          .then((google) => {
+            this.google = google
+            // 地図の初期化
+            this.map = new google.maps.Map(document.getElementById('map'), {
+              // コントロールの概要設定
+              zoom: 17, // 初期表示設定
+              center: { lat: 35.692195, lng: 139.759854 }, // マルティスープ本社
+              fullscreenControl: false, // 全画面モードで地図を開くコントロールを無効
+              mapTypeControl: false, // 地図タイプ（地図や航空写真など）を切り替える地図タイプのコントロールを無効
+              streetViewControl: true, // ユーザーがストリートビュー パノラマの有効
+              streetViewControlOptions: {
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+              },
+              zoomControl: true, // ズーム コントロールの有効
+              zoomControlOptions: {
+                position: google.maps.ControlPosition.LEFT_BOTTOM
+              },
+              scaleControl: true // 簡単な地図の縮尺調整機能を表示するスケール コントロールを有効
+            })
+            const geocoder = new this.google.maps.Geocoder()
+            const vm = this
 
-        this.marker = new this.google.maps.Marker({
-                        map: vm.map,
-                        position: { lat: 35.692195, lng: 139.759854 },
-                        draggable: false,
-                      });
-        this.map.setCenter({ lat: 35.692195, lng: 139.759854 });
-        this.isMap = true
-      })
-      .catch((e) => {
-        console.error(e);
-      });
-    },
-    showDeleteModal() {
-      this.showConfirmModal = true;
-    },
-    closeModal() {
-      this.showConfirmModal = false;
-    },
-    deletePost() {
-      // 削除処理
-    },
+            this.marker = new this.google.maps.Marker({
+              map: vm.map,
+              position: { lat: 35.692195, lng: 139.759854 },
+              draggable: false
+            })
+            this.map.setCenter({ lat: 35.692195, lng: 139.759854 })
+            this.isMap = true
+          })
+          .catch((e) => {
+            console.error(e)
+          })
+      },
+      showDeleteModal() {
+        this.showConfirmModal = true
+      },
+      closeModal() {
+        this.showConfirmModal = false
+      },
+      deletePost() {
+        // 削除処理
+      }
+    }
   }
-};
 </script>
 
 <style scoped>
-.line1 {
-  border-left:5px solid #000000; /*線の設定*/
-  padding:2px 8px; /*余白の設定*/
-}
+  .line1 {
+    border-left: 5px solid #000000; /*線の設定*/
+    padding: 2px 8px; /*余白の設定*/
+  }
 
-.pic_container {
-  position: relative;
-  z-index: -10;
-}
+  .pic_container {
+    position: relative;
+    z-index: -10;
+  }
 
-.overlay_prefecture {
-  position: absolute;
-  margin:0;
-  background-color: #fff;
-  right: 5px;
-  bottom: 15px;
-}
+  .overlay_prefecture {
+    position: absolute;
+    margin: 0;
+    background-color: #fff;
+    right: 5px;
+    bottom: 15px;
+  }
 
-.map {
-  width: 100vw;
-  height: 100vh;
-}
+  .map {
+    width: 100vw;
+    height: 100vh;
+  }
 </style>

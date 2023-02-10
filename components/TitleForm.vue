@@ -15,27 +15,26 @@
       name="email"
       placeholder="田中太郎"
       @change="uploadTitle"
-    >
+    />
   </div>
 </template>
 
 <script>
-export default {
-  props: {
-    title: {
-      type: String,
-    }
-  },
-  data() {
-    return {
-    };
-  },
-  methods: {
-    uploadTitle() {
-      this.$emit('upload-title', this.title);
+  export default {
+    props: {
+      title: {
+        type: String
+      }
+    },
+    data() {
+      return {}
+    },
+    methods: {
+      uploadTitle() {
+        this.$emit('upload-title', this.title)
+      }
     }
   }
-};
 </script>
 
 <style></style>
