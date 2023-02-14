@@ -117,18 +117,17 @@
 </template>
 
 <script setup>
-  import { useRoute, useRouter } from 'vue-router'
+  import { useRouter } from 'vue-router'
   // eslint-disable-next-line import/no-absolute-path
   import data from '/json/visits.json'
 
   const showContent = ref(false)
   const prefecture = ref('')
   const router = useRouter()
-  const route = useRoute()
 
   const toAppropriatePage = (item) => {
     prefecture.value = item.jpName
-    if (item.isVisit == false) {
+    if (item.isVisit === false) {
       showContent.value = true
     } else {
       router.push('/posts/4')
